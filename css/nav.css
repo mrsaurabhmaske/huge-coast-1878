@@ -1,0 +1,40 @@
+header{
+    background-color:rgb(125,141,212);
+}
+header > nav{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+
+}
+header > nav > ul{
+    display: flex;
+list-style-type: none;
+justify-content: space-between;
+
+color: white;
+}
+header > nav >ul> li{
+    margin: 10px;
+    color: white;
+
+}
+header > nav > img{
+width: 15%;
+}
+header > nav>button{
+    background-color: rgb(125,141,212);
+    border: 1px white solid;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    border-radius: 30px;
+}
+a{
+    text-decoration:none;
+    color: white;
+}

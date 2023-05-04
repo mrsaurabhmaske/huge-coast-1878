@@ -1,0 +1,147 @@
+body { font-family:'Poppins', sans-serif;
+    
+ }
+.hero_title{
+    text-align: center;
+    background-color: rgb(125,141,212);
+    color: aliceblue;
+    margin-top: -3%;
+    padding-top:10% ;
+}
+.hero_title> button{
+    background-color:rgb(246,152,103);
+padding: 1%;
+border-radius: 10px;
+border: none;}
+
+.hero_title> button:hover{
+    background-color:rgb(246,152,103);
+    color: white;
+    border: 1px white solid;
+    cursor: pointer;
+}
+.hero_title{
+    border-top: none;
+}
+.hero_banner > img{
+    width: 100%;
+    margin: none;
+}
+.childDataCards  > p h3{
+ font-size: xx-small;
+ align-content: center;
+}
+.childDataCards  > ion-icon{
+    width: 100%;
+}
+.childDataCards{
+    background-color: rgb(25,28,44) ;
+    border-radius: 5%;
+    color: aliceblue;
+    padding: 2%;
+    width: 20%;
+}
+.childDataCards{
+transition: 1s ease;
+}
+
+.childDataCards:hover{
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: 1s ease;
+background-color: rgb(32,36,56);
+}
+.text{
+    color: aliceblue;
+    text-align: center;
+    background-color:  rgb(26,29,47);
+}
+.dataCards{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5%, 10%;
+    background-color: rgb(26,29,47);
+}
+.subscription{
+    display: flex;
+    text-align: center;
+    color: aliceblue;
+    flex-direction: column;
+    background-color: rgb(26,29,47);
+    padding-top: 5%;
+}
+.subscription :nth-child(1){
+    color: rgb(68,79,170);
+}
+.text{
+    margin-top: -5%;
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+a{
+    text-decoration:none;
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    /* limit the height of the container */
+    overflow: hidden; /* hide the overflow */
+    background-color: rgb(26,29,45) ;
+    justify-content: flex-end;
+  }
+  
+  .child {
+    width: calc(100% / 5); /* each child div takes up one-half of the container width */
+    /* each child div takes up one-half of the container height */
+    box-sizing: border-box;
+    margin: 10px ;
+    text-align: center;
+    background-image: url(https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1200&h=200&dpr=2);
+    color: aliceblue;
+    padding-top: 180px;
+  }
+  
+  .arrow-buttons {
+    margin-top: 10px;
+  }
+  
+  .prev-button, .next-button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .prev-button {
+    margin-right: 10px;
+  }
+  
+  .child.hidden {
+    display: none;
+  }
+  
+  .benifits{
+    background-image: url(https://www.liquidplanner.com/wp-content/uploads/2020/01/iStock-1050628028-2-1-1536x1024.jpg);
+    margin-top: -3%;
+    padding-top: 10%;
+    padding-left: 5%;
+    color: aliceblue;
+  }
+  .benifits_Child{
+    display: flex;
+    flex-direction: column;
+    justify-self: ;
+    padding-left: 50%;
+  }
+  .benifitsBox{
+    display: flex;
+
+  }
+  .benifitsInnerChild{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
