@@ -71,6 +71,16 @@ justify-content: space-between;
     flex-direction: column;
 }
 
+/* ----------------------------Card-List-------------------------- */
+.card-list{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap : 10px;
+}
+
+/* ----------------------------Card--------------------------- */
+
 .card{
 
    border: 2px red solid;
@@ -140,3 +150,29 @@ justify-content: space-between;
 .book_btn:hover{
     background-color: rgb(9, 160, 9);
 }
+
+
+
+/* ----------------------------Card-Details-------------------------- */
+
+.card-details{
+    /* display: flex;
+    flex-direction: column; */
+    display: none;
+    position: relative;
+    
+}
+
+.amenities{
+    font-weight: bold;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card_description{
+    display: block;
+   
+    padding: 5px;
+}
+
