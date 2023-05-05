@@ -1,0 +1,65 @@
+footer{
+    background-color: rgb(26,29,45);
+}
+footer > div{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    
+    padding: 3%;
+}
+footer > div > .cointainer1{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    justify-content: space-between;
+    color: white;
+}
+footer > div > .cointainer1 > img{
+    width: 100%;
+}
+footer > div > .cointainer2{
+    display: flex;
+        margin: auto;
+    justify-content: space-between;
+    color: white;
+}
+footer > div > .cointainer2 > #one > footer > div{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+footer > div > .cointainer2 > #one{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+footer > div > .cointainer2 > #one > h3{
+    margin: auto;
+}
+footer > .last_line{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    
+    margin: auto;
+}
+footer > .symbols{
+    
+    display: flex;
+    
+    width: 40%;
+}
+footer > .symbols > div{
+    
+    
+    margin: auto;
+}
+a{
+    text-decoration:none;
+    color: white;
+}
