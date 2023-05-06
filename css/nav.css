@@ -1,30 +1,52 @@
-header{
-    background-color:rgb(125,141,212);
-}
-header > nav{
+nav{
     display: flex;
-    width: 80%;
-    margin: auto;
+    background-color:rgb(125,141,212);
+    position: -webkit-sticky;
+    position: sticky;
+    width: auto;
     justify-content: space-between;
     align-items: center;
-
+    padding: 8px 30px;
+    top: 0;
+  
 }
-header > nav > ul{
+nav > ul{
+    width: 60%;
     display: flex;
 list-style-type: none;
 justify-content: space-between;
 
 color: white;
 }
-header > nav >ul> li{
+nav >ul> li{
+    width: 100%/4;
     margin: 10px;
     color: white;
+    padding: 5px;
 
 }
-header > nav > img{
+nav >ul> li:hover{
+    
+    
+    border: 1px solid white;
+    cursor: pointer;
+    background-color: rgb(170, 181, 229);
+    border-radius: 5px;
+
+}
+nav >button:hover{
+    
+    
+    border: 1px solid white;
+    cursor: pointer;
+    background-color: rgb(170, 181, 229);
+    border-radius: 5px;
+
+}
+nav > img{
 width: 15%;
 }
-header > nav>button{
+nav>button{
     background-color: rgb(125,141,212);
     border: 1px white solid;
     color: white;
@@ -38,3 +60,28 @@ a{
     text-decoration:none;
     color: white;
 }
+.hamburger{
+    display: none;
+}
+nav   > ul> .login-1{
+    display: none;
+}
+/* 
+!hamberger
+*/
+@media screen and (max-width: 800px) {
+    nav ul.menu {
+      display: none;
+    }
+    .hamburgernot{
+        display: none;
+    }
+    nav   > ul> .login-1{
+    display: none;
+}
+    
+    nav button.hamburger {
+      display: block;
+      margin-right: 10px;
+    }
+  }
