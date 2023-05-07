@@ -22,6 +22,8 @@ document.getElementById("tod_date").defaultValue = todayISO;
 
 let HotelData =[]
 
+let HotelLS = JSON.parse(localStorage.getItem("hotel")) || [];
+
 window.addEventListener("load",()=>{
     fetchAndRenderHotels(1)
 })
@@ -89,20 +91,51 @@ function getCardList(data){
     cardList.className = "card-list"
 
     data.forEach((item)=>{
-        let card = getCard(item.name,item.location,item.price,item.image,item.rating,item.id)
+        let card = getCard(item.name,item.location,item.price,item.image,item.rating,item.id,item.description)
         cardList.append(card);
     })
     return cardList;
 }
     //  -----------------------------Card Data------------------------------------ --
 
-function getCard(name,loc,price,image,rating,id){
+function getCard(name,loc,price,image,rating,id,des){
     let card = document.createElement("div");
     card.className = "card"
     card.setAttribute("data-id",id);
 
+    let mainCard = document.createElement("div")
+    mainCard.className = "main-card"
+    //-----------------------------------------------
+       let cardDetails = document.createElement("div");
+    cardDetails.className = "card-details"
+    
+    let description = document.createElement("span")
+    description.className = "card_description"
+    description.innerHTML = `<strong>Description</strong> <br> ${des}` 
+
+    let amenities = document.createElement("div")
+    amenities.className = "amenities";
+    let ac = document.createElement("p")
+    ac.innerText = "Air Conditioner"
+    let tv = document.createElement("p")
+    tv.innerText = "Televison"
+    let freeWifi = document.createElement("p");
+    freeWifi.innerText = "Free Wifi";
+    let kingbed = document.createElement("p")
+    kingbed.innerText = "King Sized Bed";
+    let parking = document.createElement("p")
+    parking.innerText = "Parking facility";
+
+    amenities.append(ac,tv,freeWifi,kingbed,parking)
+
+    cardDetails.append(description,amenities);
+  
+    //--------------------------------------------
+
+
+
     let imgDiv = document.createElement("div")
-    imgDiv.className = "card_img";
+    imgDiv.className = "main-card-img";
 
     let img = document.createElement("img");
     img.src = image;
@@ -111,7 +144,7 @@ function getCard(name,loc,price,image,rating,id){
     imgDiv.append(img);
 
     let cardBody = document.createElement("div");
-    cardBody.className ="card_body";
+    cardBody.className ="main-card-body";
 
     let h3 = document.createElement("h3");
     h3.className = "card_title"
@@ -145,16 +178,46 @@ function getCard(name,loc,price,image,rating,id){
     viewbtn.className = "view_details"
     viewbtn.innerText = "View Details"
 
+    viewbtn.addEventListener("click",()=>{
+        if(viewbtn.innerText == "View Details"){
+            viewbtn.innerText = "Hide Details";
+            cardDetails.style.display = "flex";
+        }
+        else{
+            viewbtn.innerText = "View Details"
+            cardDetails.style.display = "none"
+        }
+    })
+
     let bookbtn = document.createElement("button")
     bookbtn.className = "book_btn"
     bookbtn.textContent = "Book Now"
 
+    bookbtn.addEventListener("click",()=>{
+        //name,loc,price,image,rating,id,des      -------------------> check-in check-out date left                      
+        HotelLS.push({ name : name,
+                     location : loc,
+                     rating : rating,
+                     description : des,
+                     price : price,
+                     image : image
+         })                       
+        localStorage.setItem("hotel",JSON.stringify(HotelLS));
+                                    // -----------------------------> add payment location here
+        // window.location.href = ""
+    })
+
     btns.append(viewbtn,bookbtn)
 
 cardBody.append(h3,location,ratingDiv,totprice,btns);
-card.append(imgDiv,cardBody);
+
+
+mainCard.append(imgDiv,cardBody)
+card.append(mainCard,cardDetails);
 return card;
 }
+
+
 
 
 
@@ -194,38 +257,78 @@ return card;
         }
     })
 
-    //  ----------------------------------Filter Accomodation Data------------------------------------ --
-   
+    //  ----------------------------------Filter Data------------------------------------ --
+       
+    //  ---------------------Filter Accomodation------------------ --
     let villasCheckbox = document.getElementById("Vilas");
     let HotelsCheckbox = document.getElementById("Hotel");
     let ResortsCheckbox = document.getElementById("Resort");
     let HomestaysCheckbox = document.getElementById("Homestay");
 
-    villasCheckbox.addEventListener("change",()=>{filterAccomodation()});
-    HomestaysCheckbox.addEventListener("change",()=>{filterAccomodation()});
-    ResortsCheckbox.addEventListener("change",()=>{filterAccomodation()});
-    HomestaysCheckbox.addEventListener("change",()=>{filterAccomodation()})
+    
+    villasCheckbox.addEventListener("change",()=>{filterCheck()});
+    HomestaysCheckbox.addEventListener("change",()=>{filterCheck()});
+    ResortsCheckbox.addEventListener("change",()=>{filterCheck()});
+    HomestaysCheckbox.addEventListener("change",()=>{filterCheck()})
 
-   function filterAccomodation(){
+    //  ---------------------Filter category------------------ --
+    let classicChecked = document.getElementById("classic");
+    let premiumChecked = document.getElementById("premium");
+    let luxuryChecked = document.getElementById("luxury");
+
+    classicChecked.addEventListener("change",()=>{filterCheck()});
+    premiumChecked.addEventListener("change",()=>{filterCheck()});
+    luxuryChecked.addEventListener("change",()=>{filterCheck()});
+    
+    //  ---------------------Filter Rating------------------ --
+    let fivestarChecked = document.getElementById("rating-5");
+    let fourstarChecked = document.getElementById("rating-4");
+    let threestarChecked = document.getElementById("rating-3");
+    let twostarChecked = document.getElementById("rating-2");
+    let onestarChecked = document.getElementById("rating-1");
+
+    fivestarChecked.addEventListener("change",()=>{filterCheck()});
+    fourstarChecked.addEventListener("change",()=>{filterCheck()});
+    threestarChecked.addEventListener("change",()=>{filterCheck()});
+    twostarChecked.addEventListener("change",()=>{filterCheck()});
+    onestarChecked.addEventListener("change",()=>{filterCheck()});
+
+    //  ---------------------Filter Price------------------ --
+
+    let price1Checkbox = document.getElementById("500to2000");
+    let price2Checkbox = document.getElementById("2000to5000");
+    let price3Checkbox = document.getElementById("5000to10000");
+    let price4Checkbox = document.getElementById("10000to40000");
+
+    price1Checkbox.addEventListener("change",()=>{filterCheck()});
+    price2Checkbox.addEventListener("change",()=>{filterCheck()});
+    price3Checkbox.addEventListener("change",()=>{filterCheck()});
+    price4Checkbox.addEventListener("change",()=>{filterCheck()})
+
+
+
+
+   function filterCheck(){
     console.log("filterAccomodation");
      let filterData = HotelData.filter((ele)=>{
         if((villasCheckbox.checked && ele.category === 'Vilas') || (HotelsCheckbox.checked && ele.category === 'Hotel') || (HomestaysCheckbox.checked && ele.category === 'Homestay') ||(ResortsCheckbox.checked && ele.category === "Resort")){
             console.log(ele.id);
             return true;
         }
-        // if (villasCheckbox.checked && ele.category === 'Vilas') {
-        //     console.log(ele.id)
-        //     return true;
-        //   }
-        //   if (HotelsCheckbox.checked && ele.category === 'Hotel') {
-        //     console.log(ele.id)
-        //     return true;
+        if (classicChecked.checked && ele.price <= 5000 || premiumChecked.checked && (ele.price > 5000 && ele.price <= 10000 ) || luxuryChecked.checked && ele.price > 10000 ) {
+            console.log(ele.id)
+            return true;
+          }
+          if (fivestarChecked.checked && ele.rating >= 5 || fourstarChecked.checked && (ele.rating >= 4 && ele.rating < 5) || threestarChecked.checked && (ele.rating >= 3 && ele.rating < 4) || twostarChecked.checked && (ele.rating >= 2 && ele.rating < 3) || onestarChecked.checked && (ele.rating >= 1 && ele.rating < 2) ) {
+            console.log(ele.id)
+            return true;
             
-        //   }
-        //   if (HomestaysCheckbox.checked && ele.category === 'Homestay') {
-        //     console.log(ele.id)
-        //     return true;
-        //   }
+          }
+          if (price1Checkbox.checked && (ele.price >=500 && ele.price <=2000) ||  price2Checkbox.checked && (ele.price >2000 && ele.price <=5000) ||  price3Checkbox.checked && (ele.price >5000 && ele.price <=10000) ||  price4Checkbox.checked && (ele.price >10000 && ele.price <=40000)) {
+            console.log(ele.id)
+            
+            return true;
+          }
         //   if (ResortsCheckbox.checked && ele.category === 'Resort') {
         //     console.log(ele.id)
         //     return true;
@@ -233,7 +336,9 @@ return card;
           return false;
     });
 
-    if (!villasCheckbox.checked && !HotelsCheckbox.checked && !HomestaysCheckbox.checked && !ResortsCheckbox.checked) {
+    if (!villasCheckbox.checked && !HotelsCheckbox.checked && !HomestaysCheckbox.checked && !ResortsCheckbox.checked && !classicChecked.checked && !premiumChecked.checked && !luxuryChecked.checked &&
+        !fivestarChecked.checked && !fourstarChecked.checked && !threestarChecked.checked && !twostarChecked.checked && !onestarChecked.checked &&
+        !price1Checkbox.checked && !price2Checkbox.checked && !price3Checkbox.checked && !price4Checkbox.checked) {
         fetchAndRenderHotels(1)
       } else {
          showData(filterData); 
@@ -308,3 +413,6 @@ return card;
           
 //    }
 
+    //  ----------------------------------Filter Category Data------------------------------------ --
+
+  
