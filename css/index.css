@@ -1,6 +1,7 @@
 body { font-family:'Poppins', sans-serif;
     
- }
+}
+/* !part1 */
 .hero_title{
     text-align: center;
     background-color: rgb(125,141,212);
@@ -27,121 +28,99 @@ border: none;}
     width: 100%;
     margin: none;
 }
-.childDataCards  > p h3{
- font-size: xx-small;
- align-content: center;
-}
-.childDataCards  > ion-icon{
-    width: 100%;
-}
-.childDataCards{
-    background-color: rgb(25,28,44) ;
-    border-radius: 5%;
-    color: aliceblue;
-    padding: 2%;
-    width: 20%;
-}
-.childDataCards{
-transition: 1s ease;
-}
-
-.childDataCards:hover{
--webkit-transform: scale(1.1);
--ms-transform: scale(1.1);
-transform: scale(1.1);
-transition: 1s ease;
-background-color: rgb(32,36,56);
-}
-.text{
-    color: aliceblue;
-    text-align: center;
-    background-color:  rgb(26,29,47);
-}
-.dataCards{
+/* !part2 */
+.part2{
+    margin-top: -7px;
     display: flex;
-    justify-content: space-evenly;
-    padding: 5%, 10%;
-    background-color: rgb(26,29,47);
-}
-.subscription{
-    display: flex;
-    text-align: center;
-    color: aliceblue;
     flex-direction: column;
-    background-color: rgb(26,29,47);
-    padding-top: 5%;
-}
-.subscription :nth-child(1){
-    color: rgb(68,79,170);
-}
-.text{
-    margin-top: -5%;
-    padding-top: 10%;
-    padding-bottom: 5%;
-}
-a{
-    text-decoration:none;
-    color: white;
-}
+    text-align: center;
+    background-color:rgb(25,28,45) ;
+    color: aliceblue;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
 
-.flex-container {
+}
+.part2Child{
+    width: 90%;
     display: flex;
+    margin: 30px auto;
     flex-wrap: wrap;
-    height: 300px;
-    /* limit the height of the container */
-    overflow: hidden; /* hide the overflow */
-    background-color: rgb(26,29,45) ;
-    justify-content: flex-end;
-  }
-  
-  .child {
-    width: calc(100% / 5); /* each child div takes up one-half of the container width */
-    /* each child div takes up one-half of the container height */
-    box-sizing: border-box;
-    margin: 10px ;
-    text-align: center;
-    background-image: url(https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1200&h=200&dpr=2);
-    color: aliceblue;
-    padding-top: 180px;
-  }
-  
-  .arrow-buttons {
-    margin-top: 10px;
-  }
-  
-  .prev-button, .next-button {
-    padding: 5px 10px;
-    font-size: 16px;
+}
+.part2InnerChild{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    background-color: rgb(26,29,49);
+    margin: auto;
+    padding: 20px;
+    justify-content: space-between;
+    
+}
+.part2InnerChild:hover{
+    scale: 1.1;
     cursor: pointer;
-  }
-  
-  .prev-button {
-    margin-right: 10px;
-  }
-  
-  .child.hidden {
-    display: none;
-  }
-  
-  .benifits{
-    background-image: url(https://www.liquidplanner.com/wp-content/uploads/2020/01/iStock-1050628028-2-1-1536x1024.jpg);
-    margin-top: -3%;
-    padding-top: 10%;
-    padding-left: 5%;
-    color: aliceblue;
-  }
-  .benifits_Child{
-    display: flex;
-    flex-direction: column;
-    justify-self: ;
-    padding-left: 50%;
-  }
-  .benifitsBox{
-    display: flex;
+    background-color: rgb(32,36,56);
 
-  }
-  .benifitsInnerChild{
+}
+.part2   p{
+    color:  rgb(109,110,121);
+}
+/* !part3 */
+
+/*  !part4 
+todo: add a background image transparent in word class
+*/
+
+.part4{
     display: flex;
+    width: 100%;
+    flex-direction: row;
+
+background-image: url(https://www.liquidplanner.com/wp-content/uploads/2020/01/iStock-1050628028-2-1-1536x1024.jpg);
+color: aliceblue;
+
+    
+}
+.dummy{
+    display: flex;
+    width: 50%;
+}
+.words{
+    display: flex;
+    width: 50%;
     flex-direction: column;
+    padding-top: 20px;
+    
+   
+}
+.wordInnerDiv{
+    display: flex;
+    flex-direction: rows;
+    justify-content: flex-start;
+}
+.wordInnerInnerDiv{
     margin: 10px;
-  }
+}
+
+/* <!-- 
+    !part 5
+ -->
+
+/* !part6 */
+.part6{
+    text-align: center;
+    background-color:rgb(25,28,45) ;
+    margin-top: -25px;
+    padding-top: 30px;
+    color: aliceblue;
+    padding-bottom:40px ;
+}
+.part6 > h5{
+   
+    color:  rgb(109,110,121);
+}
+.part6 :nth-child(1){
+   
+    color: rgb(101,114,172)
+}
