@@ -194,15 +194,23 @@ function getCard(name,loc,price,image,rating,id,des){
     bookbtn.textContent = "Book Now"
 
     bookbtn.addEventListener("click",()=>{
-        //name,loc,price,image,rating,id,des      -------------------> check-in check-out date left                      
+        //name,loc,price,image,rating,id,des      -------------------> check-in check-out date left   
+        let checkInDate = document.getElementById("tod_date").value;
+        let checkOutDate = document.getElementById("tom_date").value;
+        console.log(checkInDate)
+        console.log(checkOutDate)
+        HotelLS =[]                   
         HotelLS.push({ name : name,
                      location : loc,
                      rating : rating,
                      description : des,
                      price : price,
-                     image : image
+                     image : image,
+                     check_in : checkInDate,
+                     check_out : checkOutDate
          })                       
         localStorage.setItem("hotel",JSON.stringify(HotelLS));
+        
                                     // -----------------------------> add payment location here
         // window.location.href = ""
     })
@@ -229,7 +237,7 @@ return card;
     FiltersortAtoZ.addEventListener("change",()=>{
         if(FiltersortAtoZ.value == ""){
             // showData(HotelData)
-            fetchAndRenderHotels(1);
+            fetchAndRenderHotels();
         }
         else if(FiltersortAtoZ.value == "rating"){
                 let filterData = HotelData.sort((a,b)=>{
@@ -329,10 +337,7 @@ return card;
             
             return true;
           }
-        //   if (ResortsCheckbox.checked && ele.category === 'Resort') {
-        //     console.log(ele.id)
-        //     return true;
-        //   }
+        
           return false;
     });
 
@@ -351,10 +356,8 @@ return card;
    
 //  ------------------------------------------Search Data------------------------------------ --
 
-//    let Searchinput = document.getElementsByClassName("searchContainer_input");
    
     let Searchinput = document.querySelector(".searchContainer_input");
-//    let Searchbtn = document.getElementsByClassName("searchbtn")
    let Searchbtn = document.querySelector(".searchbtn")
 
 

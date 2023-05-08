@@ -8,12 +8,82 @@
     <link rel="stylesheet" href="./CSS/flight.css">
 </head>
 <body>
-   
+
+     <!-- ----------------------------------header div-------------------------------------- -->
+     <header class="searchContainer"> 
+      
+       
+       <!-- -------------------------------search widget------------------------------------------------- -->
+
+       <div class="searchContainer_widget">
+           
+            <!-- ---------------------------input location------------------------------- -->
+           <div class="searchContainer_from">
+            <span>From</span>
+               <input class="searchContainer_input_from" type="text" placeholder="Country, city or airport" required>
+               
+           </div>
+           <div class="searchContainer_to">
+            <span>To</span>
+               <input class="searchContainer_input_to" type="text" placeholder="Country, city or airport" required>
+               
+           </div>
+
+            <!-- -----------------------------date------------------------------------ -->
+           <div class="searchContainer_date">
+               <span class="date_depart">
+                   <!-- Enter todays date -->
+                   <span>Depart</span>
+                   <input type="date" id="dep_date" >
+               </span>
+               <span class="arrow">-</span>
+               <span class="date_return">
+                   <!-- Enter next date -->
+                   <span>Return</span>
+                   <input type="date"  id="ret_date">
+               </span>
+               <span></span>
+           </div>
+                       
+            <!-- -----------------------------search button------------------------------------ -->
+           <div class="searchContainer_buttondiv">
+               <button class="searchbtn">Search</button>
+           </div>
+       </div>
+     
+   </header>
+    <!-- ----------------------------------header ends------------------------------------------- -->
+
+
+    
       <!-- ------------------------------------Body container--------------------------------------- -->
     <div class="body-container">
-            <!-- <aside>
+             <aside class="filter_sidebar">
+                    <div class="sidebar_header">
+                        <span class="filter_heading">Filters</span>
+                    </div>
 
-            </aside> -->
+                    <div class="filters">
+                           
+                            <div class="filter_stops">
+                                <h4>Stops</h4>
+                                <label for=""><input type="checkbox" name="direct" id="direct">Direct</label>
+                                <label for=""><input type="checkbox" name="1-stop" id="onestop">1 Stop</label>
+                                <label for=""><input type="checkbox" name="2-stop" id="twostop">2 Stop</label>
+                            </div>
+                           
+                            <div class="filter_flights">
+                                <h4>Airlines</h4>
+                                <label for=""><input type="checkbox" name="Air Inida" id="air_india">Air India</label>
+                                <label for=""><input type="checkbox" name="SpiceJet" id="spice_jet">SpiceJet</label>
+                                <label for=""><input type="checkbox" name="IndiGo" id="indi_go">IndiGo</label>
+                                <label for=""><input type="checkbox" name="Vistara" id="vistara">Vistara</label>
+                                <label for=""><input type="checkbox" name="GoAir" id="go_air">GoAir</label>
+
+                            </div>
+                           
+                    </div>
+            </aside>
 
             <section id="data_container">
                 <div id="data-list-wrapper">
