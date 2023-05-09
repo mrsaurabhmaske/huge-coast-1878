@@ -1,0 +1,42 @@
+###POST to Hotels
+POST https://api-by-alisha-khan.onrender.com/hotels
+Content-Type:application/json
+
+{
+
+}
+
+###POST to Flights
+POST https://api-by-alisha-khan.onrender.com/flights    
+Content-Type:application/json
+
+{
+    
+}
+
+###GET Hotels
+GET https://api-by-alisha-khan.onrender.com/users
+
+###GET Flights  
+GET https://api-by-alisha-khan.onrender.com/flights/
+
+
+###PATCH Hotels
+PATCH https://api-by-alisha-khan.onrender.com/hotels/24
+Content-Type:application/json
+
+{
+    "name": "The Hilton"
+}
+
+###PATCH Flights
+PATCH https://api-by-alisha-khan.onrender.com/flights/5
+Content-Type:application/json
+
+{
+    "image":"https://1000logos.net/wp-content/uploads/2022/04/Air-India-Logo-1971.png"
+}
+
+### Delete Request
+DELETE https://api-by-alisha-khan.onrender.com/hotels/5mxKDcQ
+

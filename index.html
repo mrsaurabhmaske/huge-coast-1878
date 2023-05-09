@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link rel="stylesheet" href="CSS/nav.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Link to Slick carousel stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    
+    
+   
+    
+</head>
+<body>
+      <nav>
+        <div class="logo">
+          <a href="index.html
+    "><img style="width: 100%;" src="images/logo (2).png" alt=""></a>
+        </div>
+        <ul class="mainMenu">
+            <li><button onclick="scrollTopart5()"><i class="fa-solid fa-earth-americas fa-l">&nbsp; &nbsp;</i>Our World</button></li>
+            <li><button onclick="scrollToRecommend()"><i class="fa-solid fa-location-dot fa-l">&nbsp; </i> Destination</button></li>
+            <li><button><a href="./login-signup.html"><i class="fa-solid fa-earth-americas fa-l"></i> Discover</a></button></li>
+            <li><button onclick="scrollTofoot()"><i class="fa-solid fa-phone fa-l"></i> Contact us</button></li>
+            <li><button ><a href="./login-signup.html"><i class="fa-solid fa-right-to-bracket"></i></i>  Login</a></button></li>
+        </ul>
+        
+            
+
+        <div class="hamburger" style="display: flex;">
+          <i style="align-self: center;color: aliceblue;" class="fa-solid fa-bars fa-xl"></i>
+        </div>
+
+    </nav>
+    
+    <!-- here ends the nav bar -->
+    
+    
+    
+    <!-- //!here starts the main body -->
+    <!-- //todo main body has many parts -->
+
+    <!-- //! part1 -->
+
+    <div class="one">
+        <div class="hero_title" >
+            <h1 style="font-size: 40px;">
+                Escape from Reality
+            </h1>
+            <h1 style="font-size: 40px;">
+                Let's Explore The World
+            </h1>
+            <p style="font-size: x-small;margin-top: 40px;margin-bottom: 30px;">Get amazing experience here, no matter where in the world you want to go, <br>
+              we can help you go there anytime.</p>
+            <button style="margin-bottom: 20px;padding: 10px 20px;"><a href="./login-signup.html">Book a Trip 🡭<ion-icon name="arrow-forward-circle-outline"></ion-icon></a></button>
+        </div>
+        <div class="hero_banner">
+           <img src="images/Heroimg.jpg" alt="">
+        </div>
+
+    </div>
+    <!-- //! part2 -->
+    <div class="part2">
+        <h5 style="color: rgb(111,125,190);">
+            Get Amazing Experience 
+        </h5>
+        <h1>
+            Find Travel Perfection
+        </h1>
+        <p">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, ratione. <br>Lorem ipsum dolor sit amet.
+        </p>
+        <div class="part2Child">
+            
+            <div class="part2InnerChild"><i class="fa-solid fa-calendar-days fa-2xl"></i>
+                <br>
+                <a href="bookingPage.html"><h4>Schedule a Plan</h4></a>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam earum odit nobis ratione ea accusamus!</p>
+            </div>
+            <div class="part2InnerChild">
+                <i class="fa-solid fa-globe fa-2xl"></i>
+                <br>
+                <a href="bookingPage.html"><h4>Find a Destination</h4></a>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam earum odit nobis ratione ea accusamus!</p>
+
+            </div>
+            <div class="part2InnerChild"><i class="fa-solid fa-heart-circle-check fa-2xl"></i>
+                <br>
+                <a href="bookingPage.html"><h4>Enjoy Your Trip</h4></a>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam earum odit nobis ratione ea accusamus!</p>
+            </div>
+
+    </div>
+    </div>
+
+    <!-- !part3 -->
+<h5 id="destinationsrecommended" style="background-color: rgb(26,29,45); margin: -1px; padding-left: 20px;color: rgb(99,111,169);">Popular destination</h5>
+  
+<div class="preetam">
+    <h1>Recommended destination</h1>
+    <div class="carausalButtons">
+      <button id="prevButton"><i class="fa-solid fa-arrow-left fa-xl"></i></button>
+        <button id="nextButton"><i class="fa-solid fa-arrow-right fa-xl"></i></button>
+    </div>
+  </div>
+  
+  <div class="carousel" style="margin: -2px;">
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/1539700/pexels-photo-1539700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Leh-Ladakh</h4><h6>Leh, Jammu and Kashmir</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/2870167/pexels-photo-2870167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Jaipur</h4><h6>Jaipur, Rajasthan</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/13769652/pexels-photo-13769652.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Hampi</h4><h6>Hampi, Karnataka</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/11578849/pexels-photo-11578849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Amritsar</h4><h6>Punjab</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/4428289/pexels-photo-4428289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Goa</h4><h6>Goa, Goa</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://assets.telegraphindia.com/telegraph/2023/Jan/1673300253_new-project-4.jpg" width="300px" height="300"><h4>Darjeeling</h4><h6>Darjeeling, West Bengal</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/7104962/pexels-photo-7104962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Rishikesh</h4><h6>Rishikesh, Uttarakhand</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/11005824/pexels-photo-11005824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Munnar</h4><h6>Munnar, Kerala</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/8112531/pexels-photo-8112531.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Varanasi</h4><h6>Varanasi, Uttar Pradesh</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/7184626/pexels-photo-7184626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Khajuraho</h4><h6>Khajuraho, Madhya Pradesh</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/12912712/pexels-photo-12912712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>Jaisalmer</h4><h6>Jaisalmer, Rajasthan</h6></div>
+    <div class="textopimg" style="padding-left: 10px;padding-right: 10px;"><img src="https://images.pexels.com/photos/14643521/pexels-photo-14643521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" height="300"><h4>TajMahal</h4><h6>Agra, Uttar Pradesh</h6></div>
+  </div>
+    <!-- !part3 ends -->
+
+    <!-- !part4 -->
+    <div class="part4">
+        <div class="dummy"></div>
+        <div class="words">
+            <h5 style="color: rgb(101,114,172);">Benifits</h5>
+        <h1>
+            Our Team is Already Availavble All Over the World
+        </h1>
+        <h6>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, eius.
+        </h6>
+        <div class="wordInnerDiv">
+            <div class="wordInnerInnerDiv"><h1>16K+</h1>
+                <h6>Happy Customer</h6></div>
+            <div class="wordInnerInnerDiv"><h1>20+</h1>
+                <h6>Registered Company</h6></div>
+            <div class="wordInnerInnerDiv"><h1>20+</h1>
+                <h6>Registered Country</h6></div>
+        </div>
+        </div>
+    </div>
+<!-- 
+    !part 5
+ -->
+<div id="part5" class="container" style="background-color:rgb(25,28,45) ;">
+  <div class="left-column" style="display: flex;flex-direction: column;padding: 40px;">
+    <h5 style="color: rgb(82,92,139);">Testimonials</h5>
+    <h1 style="color: white;">What People Say
+      About Our Services</h1>
+    <div class="butonprevnxt" >
+      <button id="prevButton2"style="width: 40px;height: 40px;border-radius: 50%;"><i class="fa-solid fa-arrow-left fa-xl"></i></button>
+    <button id="nextButton2"style="width: 40px;height: 40px;border-radius: 50%;"><i class="fa-solid fa-arrow-right fa-xl"></i></button>
+    </div>
+  </div>
+  <div class="right-column">
+    <div class="carousel2">3       
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+      <div class="tex" style="width: 300;height: 350px;background-color: rgb(27,31,48);color: white;padding-top: 100px;padding-left: 30px;"><span style="font-size:25px;color:white">&#8220;</span><h5>RUpesh Tyagi</h5><div class="rating stars" style="display: flex;"><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span><span style="font-size:150%;color:yellow;">&starf;</span></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto?</p></div>
+    </div><i class="fa-solid fa-arrow-left fa-xl"></i>3  </div> 
+</div>
+
+
+ <!-- !part6 -->
+ <div class="part6">
+    <h5>Subscription</h5>
+        <h1>
+            Join Our Communtity To Get Best Price
+        </h1>
+        <h5>
+            Subscribe To be the first one to hear about upcoming fintech services
+        </h5>
+        <div class="input-icons">
+          <i class="fa fa-envelope icon"></i>
+          <input style="background-color: none;" type="email" placeholder="Enter your Email address">
+          <button type="submit"><a href="login" style="color: aliceblue;">Join Now</a></button>
+        </div>
+        <br>
+        <br>
+        
+
+        <div class="othercompanylogos">
+          <a href="travelocity.com/"><img src="images/dont_touch/1.png" alt=""></a>
+          <a href="travelers.com/"><img src="images/dont_touch/2.png" alt=""></a>
+          <a href="travelocity.com/"><img src="images/dont_touch/3.png" alt=""></a>
+          <a href="travelers.com/"><img style="padding-top: 10px;"  src="images/dont_touch/4.png" alt=""></a>
+
+        </div>
+        
+        <hr style="width: 80%;margin: auto;height: 1px;color:rgb(110,112,123);">
+ </div>
+
+
+ <!-- !todopart7 -->
+
+<!-- ?footer -->
+
+<footer id="footer">
+    <div class="footer1stPart">
+        <div class="footer1stPartInnerChild" id="1">
+            <img src="images/logo (2).png" alt="">
+            <h6>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam similique aspernatur modi, placeat laborum nostrum.</h6>
+          </div>
+          
+          <div class="footer1stPartInnerChild" id="2">
+            <h3>About</h3>
+            
+            <h6>About Us</h6>
+            <h6>Features</h6>
+            <h6>News</h6>
+          </div>
+          
+          <div class="footer1stPartInnerChild" id="3">
+            <h3>Company</h3>
+            
+            <h6>Travelish</h6>
+            <h6>Patner With <br> Us</h6>
+            <h6>Blog</h6>
+          </div>
+          
+          <div class="footer1stPartInnerChild" id="4">
+            <h3>Company</h3>
+            
+            <h6>Travelish</h6>
+            <h6>Patner With <br> Us</h6>
+            <h6>Blog</h6>
+          </div>
+          <div class="footer1stPartInnerChild" id="5">
+            <h3>ContactUs</h3>
+            
+            <h6>Location</h6>
+            <h6>Email</h6>
+            <h6>Telephone</h6>
+          </div>
+    </div>
+    <div class="footer2ndPart">
+        <div class="part2ndLeft">
+            <h5>2023 © Travelish. All right reserved.</h5>
+            <br>
+        </div>
+        <div class="part2ndRight">
+            <i class="fa-brands fa-facebook fa-l"></i>
+            <i class="fa-brands fa-instagram fa-l"></i>
+            <i class="fa-brands fa-twitter fa-l"></i>
+            <i class="fa-brands fa-youtube fa-l"></i>
+        </div>
+    </div>
+</footer>
+
+
+<script src="src/index.js"></script>
+<script src="./nav.js"></script>
+<!-- !carausal -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>   
+</body>
+<script>
+
+  // !carausal 1 -->
+    $(document).ready(function() {
+  $('.carousel').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    
+   
+    responsive: [
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+    
+  });
+
+  $('#prevButton').click(function() {
+    $('.carousel').slick('slickPrev');
+  });
+
+  $('#nextButton').click(function() {
+    $('.carousel').slick('slickNext');
+  });
+});
+
+
+// !carausal 2 -->
+
+$(document).ready(function() {
+    $('.carousel2').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
+    $('#prevButton2').click(function() {
+      $('.carousel2').slick('slickPrev');
+    });
+
+    $('#nextButton2').click(function() {
+      $('.carousel2').slick('slickNext');
+    });
+  });
+
+</script>
+</html>

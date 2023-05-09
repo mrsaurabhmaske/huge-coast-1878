@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel_booking_Page</title>
+    <style>
+        #title{
+            /* background-color: rgb(4, 4, 82); */
+            background-image: linear-gradient( #8a5ff7,#6b32fa);
+            color: white;
+            /* background-color: rgb(91, 46, 196); */
+            height: 50px;
+            box-shadow: -9px 10px 36px -12px rgba(0,0,0,0.1);
+            padding: 10px;
+            padding-left: 30px;
+            height: 130px;
+           
+        }
+        body{
+            margin: 0px;
+            font-family: 'monserrat', sans-serif;
+            background-color:rgb(178, 161, 255);
+            color: rgb(0, 0, 0);
+        }
+        #hoteldetails{
+            width: 66%;
+            margin-right: 20px;
+            margin-left: 20px;
+            border-radius: 8px;
+            padding:40px;
+           
+            box-sizing:content-box;
+            margin-top: 20px;
+            box-shadow: -4px 0px 8px 4px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        #bookingDetails{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid grey;
+            border-top: 1px solid grey;
+            
+            
+        }
+        #time{
+            display:inline;
+            margin-left: -60px;
+        }
+        #time img{
+            width: 90px;
+            margin-top: -40px;
+            margin-left: -20px;
+           
+           
+        }
+        #hotelname{
+            
+            
+            margin-bottom: 10px;
+            padding-bottom: 30px;
+            
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        #hotelname :nth-child(1){
+            box-sizing: border-box;
+        }
+        #rating-container{
+            color: #6b32fa;
+            font-size: 25px;
+        }
+        #hotelname img{
+            width: 300px;
+            margin-right: 30px;
+            border-radius: 5px;
+            box-shadow: -4px 0px 8px 4px rgba(0,0,0,0.1);
+           
+        }
+        #amenities{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            padding: 20px;
+            border-radius: 5px;
+            border:1px solid rgb(54, 29, 112);
+            box-shadow: -9px 10px 36px -12px grey;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            background-color: #6b32fa;
+            color: white;
+        }
+        #rules{
+            background-color:rgb(178, 161, 255) ;
+            width: 100%;
+            margin-left: 0px;;
+            padding-left: 0px;
+            border: dashed red 1px;
+            margin-top: 10px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+
+        } 
+        #info{
+            font-size: 22px;
+            color: rgb(185, 14, 14);
+            font-weight: 900;
+           
+        }
+        #container{
+            display: flex;
+            margin-top: -70px;
+            
+        }
+        #paybreak{
+            border-radius: 5px;
+           
+            box-sizing:content-box;
+            margin-top: 20px;
+            box-shadow: -4px 0px 8px 4px rgba(0,0,0,0.1);
+            background-color: white;
+            
+           
+        }
+        #paydetails{
+            
+            width: 25%;
+            
+           
+        }
+        #prices{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;;
+            margin-bottom: 10px ;
+            border-bottom: 1px solid rgb(45, 21, 100);
+            align-items: center;
+        }
+        #tax{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgb(45, 21, 100);
+            margin-bottom: 20px;
+        }
+        #break{
+            padding: 20px;
+            margin-bottom: 30px;
+            
+            
+        }
+        #total{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #6b32fa;
+            border-radius: 0px 0px 5px 5px;
+            color: white;
+            font-size: 20px;
+        }
+        #date{
+            color: white;
+        }
+        #paycontainer{
+            padding: 20px;
+            border-radius: 5px;
+           font-size: 25px;
+           box-sizing:content-box;
+           margin-top: 20px;
+           box-shadow: -4px 0px 8px 4px rgba(0,0,0,0.1);
+            padding:12px;
+            background: #6b32fa;
+            color:#fff;
+            margin-top: 20px;
+            cursor: pointer;
+            height: 30px;
+        }
+        #paycontainer:hover{
+            background: rgb(45, 21, 100);
+            box-shadow: 1px 0px 13px 5px rgb(39, 23, 117);
+        }
+        .coupon{
+            border: 3px dotted grey;
+            padding: 10px;
+            margin-top: 5px;
+            
+            
+        }
+        .coupon h3{
+            display: inline;
+        }
+        .coupon p{
+            margin-top: 0px;
+        }
+        .coupon input{
+            font-size: 25px;
+        }
+        .date{
+           opacity: 100%;
+           position: static;
+           margin-right: 100px;
+           width: 35px;
+           outline: none;
+           border: none;
+           /* font-size: px; */
+           margin-left: 2px;
+          
+        }
+        input[type="date"]{
+        background-color: #43206b;
+        padding: 3px;
+        position: absolute;
+        /* transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        font-family: "Roboto Mono",monospace;
+        color: #ffffff;
+        font-size: 18px;
+        border: none;
+        outline: none;*/
+        border-radius: 5px;
+    }
+    ::-webkit-calendar-picker-indicator{
+        background-color: #d0c3d8;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 25px;
+    }
+    :root {
+  --form-control-color: rebeccapurple;
+    }
+
+    *,
+    *:before,
+    *:after {
+    box-sizing: border-box;
+    }
+
+    body {
+    margin: 0;
+    }
+
+    form {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    }
+
+    .form-control {
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    }
+
+    .form-control + .form-control {
+    margin-top: 1em;
+    }
+
+    .form-control:focus-within {
+    color: var(--form-control-color);
+    }
+
+    
+    </style>
+</head>
+<body>
+    <div id="title"><h1>Review your Booking</h1></div>
+    <div id="container">
+        <div id="hoteldetails">
+            <!-- append all hotel details here -->
+            <div id="hotelname">
+                <div>
+                    <h1 id="hotelnaam">Ginger Goa</h1>
+                    <h3 id="hotellocation">Panjin</h3>
+                    <div id="rating-container">  <span id="grey-stars"></span></div>
+                    <h4 id="description">Revel in the living heritage, Ambika Vilas, and live the authentic Kerela life in the calm courtyards and cool verandas.</h4>
+                   
+                </div>
+                    
+                <div>
+                    <img id="hotelimage" src="https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202209151632557883-13ebf9e8461611edb4890a58a9feac02.jpg?&output-quality=75&downsize=583:388&output-format=jpg" alt="">
+                </div>
+            </div>
+            <div id="bookingDetails">
+                <div id="checkin">
+                    <p>CHECK IN</p>
+                    <h2> <span id="ckindate">9</span> <span id="ckinmonth">May</span> <span id="ckinyear">2023</span><input id="checkinINP" class="date" type="datetime-local"></h2>
+                    <p id="ckintime">8 PM</p>
+                </div>
+                <div id="time"><h3><span id="night">1</span> Night</h3></div>
+                <div id="checkout">
+                    <p>CHECKOUT</p>
+                    <h2>
+                        <span id="ckoutdate">10</span> <span id="ckoutmonth">May</span> <span id="ckoutyear">2023</span> <input id="checkoutINP" class="date" type="datetime-local">
+                    </h2>
+                    <p id="ckouttime"> 12 PM</p>
+                </div>
+                
+            </div>
+            <div id="amenities"></div>
+            <div id="rules">
+                <ul> <span id="info">Importan information</span>
+                    <li>Passport, Aadhaar, Driving Licsense and Govt. ID are accepted as ID proof(s)</li>
+                    <li>Pets are not allowed</li>
+                    <li>Smoking within the premises is not allowed</li>
+                    <li>Allows private parties or events</li>
+                </ul>
+            </div>
+        </div>
+            <div id="paydetails">
+                <div id="paybreak">
+                    <div id="break">
+                        <h2>Price Breakup</h2>
+                        <!-- <div id="prices">
+
+                        <p>Base Price</p>
+                        </div>
+                        <div>
+                            1399
+                        </div>
+                        </div> -->
+                        <div id="tax">
+                            <div>Base Price</div>
+                            <div>Rs <span id="base_price">1399</span></div>
+                        </div>
+                        <div id="tax">
+                            <div>Nights</div>
+                            <div><span id="nightbill">1</span></div>
+                        </div>
+                        <div id="tax">
+                            <div>Hotel Taxes</div>
+                            <div>499</div>
+                        </div>
+                    </div>
+                    <div id="total">
+                        <div>Total amount to be paid</div>
+                        <div id="total_amount">4000</div>
+                    </div>
+                </div>
+                <div id="paycontainer" style="text-align:center">
+                    <!-- <h2>Coupen Codes</h2>
+                    <div class="coupon">
+                         <input type="radio"> <h3>FLAT25</h3>
+                         <p>Get 25% off on hotel booking upto 500</p>
+                    </div>
+                    <div class="coupon">
+                        <input type="radio"> <h3>FLAT25</h3>
+                        <p>Get 25% off on hotel booking upto 500</p>
+                   </div>
+                   <div class="coupon">
+                    <input type="radio"> <h3>FLAT25</h3>
+                    <p>Get 25% off on hotel booking upto 500</p>
+               </div>
+               <div class="coupon">
+                <input type="radio"> <h3>FLAT25</h3>
+                <p>Get 25% off on hotel booking upto 500</p> -->
+                Proceed to Payment
+           </div>
+                </div>
+                
+            </div>
+    </div>
+   
+  
+
+   
+
+    
+</body>
+<script>
+   
+
+        let hotelLSD=JSON.parse(localStorage.getItem("hotel"));
+
+    let hotelLS = hotelLSD[0];
+    
+    let amenity=[
+            "Free Wi-Fi",
+            "24-hour room service",
+            "Restaurant",
+            "Bar/Lounge",
+            "Swimming pool",
+            "Fitness center",
+            "Spa",
+            "Business center",
+            "Conference room"
+         ]
+
+    let hotelname=document.getElementById("hotelnaam")
+    let hotellocation=document.getElementById("hotellocation");
+    let description=document.getElementById("description")
+    let hotelimage=document.getElementById("hotelimage")
+    let checkinINP=document.getElementById("checkinINP")
+    let ckindate=document.getElementById("ckindate");
+    let ckinmonth=document.getElementById("ckinmonth");
+    let ckinyear=document.getElementById("ckinyear")
+    let ckintime=document.getElementById("ckintime")
+    let night=document.getElementById("night")
+    let nightbill=document.getElementById("nightbill")
+    let baseprice=document.getElementById("base_price")
+    let total_amount=document.getElementById("total_amount")
+    console.log(ckintime.textContent)
+    checkinINP.addEventListener("change",()=>{
+        let splitT=checkinINP.value.split("T");
+        let splitdate=splitT[0].split("-");
+        ckindate.textContent=splitdate[2];
+        ckinmonth.textContent=convertmonth(splitdate[1]);
+        ckinyear.textContent=splitdate[0]
+        let split_time=splitT[1].split(":");
+        //ckintime.textContent=split_time[0]
+        if(Number(split_time[0])<=12){
+            ckintime.textContent=`${Number(split_time[0])} AM`
+        }else{
+            ckintime.textContent=`${Number(split_time[0])-12} PM`
+        }
+
+    })
+
+
+
+    let checkoutINP=document.getElementById("checkoutINP")
+    let ckoutdate=document.getElementById("ckoutdate");
+    let ckoutmonth=document.getElementById("ckoutmonth");
+    let ckoutyear=document.getElementById("ckoutyear")
+    let ckouttime=document.getElementById("ckouttime")
+    console.log(ckouttime.textContent)
+    checkoutINP.addEventListener("change",()=>{
+        
+        let splitT=checkoutINP.value.split("T");
+        let splitdate=splitT[0].split("-");
+        ckoutdate.textContent=splitdate[2];
+        ckoutmonth.textContent=convertmonth(splitdate[1]);
+        ckoutyear.textContent=splitdate[0]
+        let split_time=splitT[1].split(":");
+        //ckouttime.textContent=split_time[0]
+        if(Number(split_time[0])<=12){
+            ckouttime.textContent=`${Number(split_time[0])} AM`
+        }else{
+            ckouttime.textContent=`${Number(split_time[0])-12} PM`
+        }
+
+        let total_nights=Number(ckoutdate.textContent)-Number(ckindate.textContent);
+       
+        night.textContent=total_nights
+        nightbill.textContent=total_nights
+
+    
+        total_amount.textContent=(nightbill.textContent*baseprice.textContent)+499
+        
+        
+        
+
+
+    })
+
+    hotelname.textContent=hotelLS.name
+    hotellocation.textContent=hotelLS.location;
+    description.textContent=hotelLS.description
+    
+    hotelimage.setAttribute("src", hotelLS.image)
+    baseprice.textContent=hotelLS.price
+    total_amount.textContent=`Rs ${(nightbill.textContent*baseprice.textContent)+499}`;
+    
+
+
+    
+    const rating = hotelLS.rating;
+    const stars = fillStars(rating); // assuming you have already defined the fillStars function
+    const ratingContainer = document.getElementById('rating-container');
+   
+    ratingContainer.innerHTML = stars;
+    function fillStars(num) {
+    // round the input number to the nearest 0.5
+    num = Math.round(num * 2) / 2;
+    
+    // create an empty string to hold the stars
+    let stars = '';
+    
+    // loop through each whole star (left of the decimal point)
+    for (let i = 0; i < Math.floor(num); i++) {
+        stars += '★';
+    }
+    
+    // if there's a half star (after the decimal point), add a half-filled star
+    if (num % 1 !== 0) {
+        stars += '';
+    }
+    
+    // return the string of stars
+    return stars;
+    }
+    let amenities=document.getElementById("amenities");
+    amenity.forEach((ele)=> {
+        let amendiv=document.createElement("div");
+        amendiv.textContent=ele
+        amenities.append(amendiv)
+    });
+    // let paynow=document.getElementById("paynow");
+    // paynow.addEventListener("click",()=>{
+
+    // })
+    function convertmonth(num){
+        if(num==01){
+            return "Jan"
+        }
+        if(num==02){
+            return "Feb"
+        }
+        if(num==03){
+            return "Mar"
+        }
+        if(num==04){
+            return "Apr"
+        }
+        if(num==05){
+            return "May"
+        }
+        if(num==06){
+            return "Jun"
+        }
+        if(num==07){
+            return "Jul"
+        }
+        if(num==08){
+            return "Aug"
+        }
+        if(num==09){
+            return "Sept"
+        }
+        if(num==10){
+            return "Oct"
+        }
+        if(num==11){
+            return "Nov"
+        }
+        if(num==12){
+            return "Dec"
+        }
+
+    }
+    let paycontainer=document.getElementById("paycontainer");
+    paycontainer.addEventListener("click",()=>{
+        window.location.href="./payment gateway/paymentgateway.html"
+    })
+    
+
+
+</script>
+</html>

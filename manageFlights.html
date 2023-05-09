@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Flights</title>
+    <link rel="stylesheet" href="./CSS/manageFlights.css">
+</head>
+
+<body>
+    <div id="sidebar">
+        <label class="lefttop">
+            <button id="showAllFlights">Show All Flights</button>
+        </label>
+
+        <label id="addNewFlightBar" class="leftbottom">
+            ADD NEW
+            <input type="text" placeholder="Enter Flight Number" id="EFAddNumber">
+
+            <select name="flighImage" id="EFAddAirline">
+                <option value="" hidden>Select Airline</option>
+                <option value="Air India">Air India</option>
+                <option value="IndiGo">IndiGo</option>
+                <option value="SpiceJet">SpiceJet</option>
+                <option value="Vistara">Vistara</option>
+                <option value="GoAir">GoAir</option>
+            </select>
+
+            <select id="EFAddFromCity">
+                <option value=""  hidden>Select --FROM-- City</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Nagpur">Nagpur</option>
+            </select>
+            
+            <select id="EFAddToCity">
+                <option value=""  hidden>Select --TO-- City</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Nagpur">Nagpur</option>
+            </select>
+
+            <span id="TimeSelect">
+                Dep: <input type="time" id="EFAddDepartureTime">
+                Arr: <input type="time" id="EFAddArrivalTime">
+            </span>
+
+            <input type="number" placeholder="Enter Ticket Fare" id="EFAddFare">
+            <input type="number" placeholder="Enter Total Seats" id="EFAddSeats">
+            <button id="EFAddBtn">Add</button>
+        </label>
+
+        <label id="openAddNewFlight"><button>Add New Flight</button></label>
+
+        <label id="editFlightBar" class="leftbottom">
+            EDIT MODE
+            <input type="text" id="EFEditID" disabled>
+            <input type="text" placeholder="Enter new Flight Number" id="EFEditNumber">
+            <input type="text" id="EFEditAirline" disabled>
+            
+            <select id="EFEditFromCity">
+                <option value="Delhi">Delhi</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Nagpur">Nagpur</option>
+            </select>
+            
+            <select id="EFEditToCity">
+                <option value="Delhi">Delhi</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Nagpur">Nagpur</option>
+            </select>
+
+            <span id="TimeSelect">  
+                Dep: <input type="time" id="EFEditDepartureTime">
+                Arr: <input type="time" id="EFEditArrivalTime">
+            </span>
+
+            <input type="number" placeholder="Enter Ticket Fare" id="EFEditFare">
+            <input type="number" placeholder="Enter Updated Seat Count" id="EFEditSeats">
+            <button id="EFEditBtn">Save Changes</button>
+        </label>
+    </div>
+
+    <div id="opensidebar2">More options</div>
+
+    <div id="sidebar2">
+        <label class="righttop">
+            <button id="adminLogOut">Log Out</button>
+        </label>
+
+        <label>Search for Flights
+            <input type="text" placeholder="Search by Airline/ Flight Number" id="SearchFlights">
+        </label>
+
+        <label>
+            SORT BY
+            <select id="sortBy">
+                <option value="">Sort By Price</option>
+                <option value="LTH">Low to High</option>
+                <option value="HTL">High to Low</option>
+            </select>
+        </label>
+
+        <label>
+            Filter By
+            <select name="category" id="DCityFilter">
+                <option value="" hidden>Departure City</option>
+                <option value="Delhi">From Delhi</option>
+                <option value="Bangalore">From Bangalore</option>
+                <option value="Mumbai">From Mumbai</option>
+                <option value="Hyderabad">From Hyderabad</option>
+                <option value="Chennai">From Chennai</option>
+                <option value="Ahmedabad">From Ahmedabad</option>
+                <option value="Kolkata">From Kolkata</option>
+                <option value="Jaipur">From Jaipur</option>
+                <option value="Nagpur">From Nagpur</option>
+            </select>
+
+            <select name="category" id="ACityFilter">
+                <option value="" hidden>Arrival City</option>
+                <option value="Delhi">To Delhi</option>
+                <option value="Bangalore">To Bangalore</option>
+                <option value="Mumbai">To Mumbai</option>
+                <option value="Hyderabad">To Hyderabad</option>
+                <option value="Chennai">To Chennai</option>
+                <option value="Ahmedabad">To Ahmedabad</option>
+                <option value="Kolkata">To Kolkata</option>
+                <option value="Jaipur">To Jaipur</option>
+                <option value="Nagpur">To Nagpur</option>
+            </select>
+        </label>
+        <label class="rightbottom">
+            <button id="closeSideBar2">Close-></button>
+        </label>
+    </div>
+
+    <div id="mainSection">
+        <div id="head">
+            <div>
+                <a href="./dashboard.html"><img src="./plane.png" alt=""></a>
+            </div>
+
+            <div>
+                <h1 id="greeting">Welcome Admin</h1>
+                <h3>Total results: <span>0</span></h3>
+            </div>
+        </div>
+
+        <div id="data-display-container">
+            <div class="loadingio-spinner-wedges-b26wzcixxz">
+                <div class="ldio-f9dd3opjeia">
+                    <div>
+                        <div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Admin Validation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    let username = localStorage.getItem("username") || "";
+    let password = localStorage.getItem("password") || "";
+
+    if (username != "admin@masaischool.com" || password != "unicorn") {
+        window.location.href = "login-signup.html";
+        alert("You do not have Admin Access!!!");
+        
+    }
+
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Admin Validation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+    let objCities = {
+        "Delhi"         :   "DEL",
+        "Bangalore"     :   "BLR",
+        "Mumbai"        :   "BOM",
+        "Hyderabad"     :   "HYD",
+        "Chennai"       :   "MAA",
+        "Ahmedabad"     :   "AMD",
+        "Kolkata"       :   "CCU",
+        "Jaipur"        :   "JAI",
+        "Nagpur"        :   "NGP"
+    }
+
+    let allFlights = [];
+    let flightCount = document.querySelector("#head>div span");
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ooooooooooooo>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let mainSection         = document.querySelector("#data-display-container");
+    let sidebarAddNewFlight = document.querySelector("#addNewFlightBar");
+    let sidebarEditFlight   = document.querySelector("#editFlightBar")
+    let toggleSectionButton = document.querySelector("#openAddNewFlight");
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ooooooooooooo>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let EFAddNumber         = document.querySelector("#EFAddNumber");
+    let EFAddAirline        = document.querySelector("#EFAddAirline");
+    let EFAddFromCity       = document.querySelector("#EFAddFromCity");
+    let EFAddToCity         = document.querySelector("#EFAddToCity");
+    let EFAddDepartureTime  = document.querySelector("#EFAddDepartureTime");
+    let EFAddArrivalTime    = document.querySelector("#EFAddArrivalTime");
+    let EFAddFare           = document.querySelector("#EFAddFare");
+    let EFAddSeats          = document.querySelector("#EFAddSeats");
+    let EFAddBtn            = document.querySelector("#EFAddBtn");
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ooooooooooooo>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let EFEditID            = document.querySelector("#EFEditID");
+    let EFEditNumber        = document.querySelector("#EFEditNumber");
+    let EFEditAirline       = document.querySelector("#EFEditAirline");
+    let EFEditFromCity      = document.querySelector("#EFEditFromCity");
+    let EFEditToCity        = document.querySelector("#EFEditToCity");
+    let EFEditDepartureTime = document.querySelector("#EFEditDepartureTime");
+    let EFEditArrivalTime   = document.querySelector("#EFEditArrivalTime");
+    let EFEditFare          = document.querySelector("#EFEditFare");
+    let EFEditSeats         = document.querySelector("#EFEditSeats");
+    let EFEditBtn           = document.querySelector("#EFEditBtn");
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<To Add new Hotel>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    async function addFlight(obj) {
+        try {
+            let res = await fetch("https://api-by-alisha-khan.onrender.com/flights/", {
+                method: "POST",
+                body: JSON.stringify(obj),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            })
+            let data = await res.json();
+            console.log(data);
+            FetchFlights();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    EFAddBtn.addEventListener("click", function () {
+        if (EFAddNumber.value == "" || EFAddFromCity.value == "" || EFAddToCity.value == "" || EFAddAirline.value == "" || EFAddFare.value == "" || EFAddSeats.value == "") {
+            alert("Please fill all the details for adding new Flight...")
+        }
+        else if(EFAddFromCity.value == EFAddToCity.value){
+            alert("Departure and Arrival cities cannot be same...")
+        }
+        else {
+            let obj = {};
+            obj.flight_number       = EFAddNumber.value;
+            obj.airline             = EFAddAirline.value;
+            obj.from_city           = EFAddFromCity.value;
+            obj.from_code           = objCities[EFAddFromCity.value];
+            obj.to_city             = EFAddToCity.value;
+            obj.to_code             = objCities[EFAddToCity.value];
+            obj.arrival             = EFAddArrivalTime.value;
+            obj.departure           = EFAddDepartureTime.value;
+            obj.duration            = "2h 35m";
+            obj.price               = EFAddFare.value;
+            obj.seats_available     = EFAddSeats.value;
+
+            addFlight(obj);
+//  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Clear Input Boxes>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            EFAddNumber.value          = "";
+            EFAddAirline.value         = "";
+            EFAddFromCity.value        = "";
+            EFAddToCity.value          = "";
+            EFAddArrivalTime.value     = "";
+            EFAddDepartureTime.value   = "";
+            EFAddFare.value            = "";
+            EFAddSeats.value           = "";
+
+        }
+    })
+
+    toggleSectionButton.addEventListener("click", function () {
+        sidebarAddNewFlight.style.display = "flex";
+        sidebarEditFlight.style.display = "none";
+        toggleSectionButton.style.display = "none";
+    })
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Add Hotels END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<To Display Hotels>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    FetchFlights();
+    async function FetchFlights() {
+        try {
+            let res = await fetch("https://api-by-alisha-khan.onrender.com/flights")
+            let data = await res.json();
+            allFlights = data;
+            console.log(allFlights);
+            flightCount.innerText = data.length;
+            DisplayFlights(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function DisplayFlights(data) {
+        mainSection.innerHTML = null;
+
+        flightCount.innerText = data.length;
+
+        let cardlist = document.createElement("div");
+        cardlist.className = "cardlist";
+
+        data.forEach(element => {
+            let card = document.createElement("div");
+            card.className = "card";
+
+            let imageSection = document.createElement("div");
+            imageSection.className = "imageSection";
+            let flightNum = document.createElement("div");
+            flightNum.className = "flightNum";
+            flightNum.innerText = element.flight_number;
+            let airline = document.createElement("div");
+            airline.className = "airline";
+            airline.innerText = element.airline;
+            imageSection.append(flightNum,  airline)
+
+            let infoSection     = document.createElement("div");
+            infoSection.className="infoSection";
+
+            let upper = document.createElement("div");
+            upper.className = "infoUpper";
+            let dDiv            = document.createElement("div");
+            dDiv.className      = "cityDiv";
+            dDiv.innerText      = `${element.from_city} (${element.from_code})`;
+            let aDiv            = document.createElement("div");
+            aDiv.className      = "cityDiv";
+            aDiv.innerText      = `${element.to_city} (${element.to_code})`;
+
+            let midDiv          = document.createElement("div");
+            midDiv.className    = "midDiv";
+
+            let midTop          = document.createElement("div");
+            midTop.className    = "midTop";
+            midTop.innerText    = `${element.duration}`;
+            let midBottom       = document.createElement("div");
+            midBottom.className = "midBottom";
+            midBottom.innerText = `${element.departure} - ${element.arrival}`;
+
+            midDiv.append(midTop,midBottom);
+
+            upper.append(dDiv,midDiv,aDiv);
+
+            let lower = document.createElement("div");
+            lower.className = "infoLower";
+
+            let priceDiv = document.createElement("div");
+            priceDiv.className="priceDiv";
+            priceDiv.innerText = `Price: ${element.price}`;
+            let seatsDiv = document.createElement("div");
+            seatsDiv.className = "seatsDiv";
+            seatsDiv.innerText = `Seats: ${element.seats_available}`;
+
+            lower.append(priceDiv,seatsDiv)
+
+            infoSection.append(upper,lower);
+            
+            let buttonSection   = document.createElement("div");
+            buttonSection.className = "buttonSection";
+
+            let editBtn         = document.createElement("div");
+            editBtn.className="editBtn cardButton";
+            editBtn.innerText ="EDIT";
+
+            editBtn.addEventListener("click", function () {
+                editBtn.innerHTML = null;
+                let loader = document.createElement("div");
+                loader.className = "lds-dual-ring";
+                editBtn.append(loader);
+                editBtn.style.paddingBottom = "2px";
+                editBtn.style.paddingRight = "2px";
+                setTimeout(() => {
+                    editBtn.innerHTML = null;
+                    editBtn.textContent = "EDIT";
+                    editBtn.style.padding = "15px";
+                    addNewFlightBar.style.display = "none";
+                    editFlightBar.style.display = "flex";
+                    toggleSectionButton.style.display = "flex";
+                    EFEditID.value = element.id;
+                    EFEditNumber.value = element.flight_number;
+                    EFEditAirline.value = element.airline;
+                    EFEditFromCity.value = element.from_city;
+                    EFEditToCity.value = element.to_city;
+                    EFEditDepartureTime.value = element.departure;
+                    EFEditArrivalTime.value = element.arrival;
+                    EFEditFare.value = element.price;
+                    EFEditSeats.value = element.seats_available;
+                }, 700);
+            })
+
+            let deleteBtn = document.createElement("div");
+            deleteBtn.className = "cardButton";
+            deleteBtn.setAttribute("id", "hotelDelete");
+            deleteBtn.textContent = "DELETE";
+
+            deleteBtn.addEventListener("click", function () {
+                deleteBtn.innerHTML = null;
+                setTimeout(() => {
+                    deleteBtn.textContent = "DELETE";
+                    deleteBtn.style.backgroundColor = "rgb(171, 153, 255)";
+                }, 4300);
+                setTimeout(() => {
+                    deleteBtn.textContent = "NO!";
+                    deleteBtn.style.backgroundColor = "rgb(51, 172, 51)";
+                }, 4000);
+
+                let yesBtn = document.createElement("button");
+                yesBtn.className = "deleteOption";
+                yesBtn.textContent = "Confirm Deletion?";
+                yesBtn.addEventListener("click", function () {
+                    let id = element.id;
+                    card.style.backgroundColor = "#840032";
+                    card.style.Color = "white";
+                    card.style.transform = "scale(0.9)";
+                    deleteFlight(id);
+                })
+
+                deleteBtn.append(yesBtn);
+            })
+
+            buttonSection.append(editBtn,deleteBtn);
+
+            card.append(imageSection, infoSection, buttonSection);
+            cardlist.append(card);
+        });
+        mainSection.append(cardlist);
+    }
+
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<EDIT HOTEL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    async function editFlights(obj, id) {
+        try {
+            let res = await fetch(`https://api-by-alisha-khan.onrender.com/flights/${id}`, {
+                method: "PATCH",
+                body: JSON.stringify(obj),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            })
+            let data = await res.json();
+            console.log(data);
+            FetchFlights();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    EFEditBtn.addEventListener("click", () => {
+        if (EFEditNumber.value == "" || EFEditFromCity.value == "" || EFEditToCity.value == "" || EFEditFare.value == "") {
+            alert("Please select a Hotel you wish to edit details for...")
+        }
+        else {
+            let obj = {};
+            obj.flight_number       = EFEditNumber.value;
+            obj.airline             = EFEditAirline.value;
+            obj.from_city           = EFEditFromCity.value;
+            obj.from_code           = objCities[EFEditFromCity.value];
+            obj.to_city             = EFEditToCity.value;
+            obj.to_code             = objCities[EFEditToCity.value];
+            obj.arrival             = EFEditArrivalTime.value;
+            obj.departure           = EFEditDepartureTime.value;
+            obj.duration            = "2h 35m";
+            obj.price               = EFEditFare.value;
+            obj.seats_available     = EFEditSeats.value;
+
+            let id                  = EFEditID.value;
+            editFlights(obj, id);
+
+            // EFEditNumber.value          = "";
+            // EFEditAirline.value         = "";
+            // EFEditFromCity.value        = "";
+            // EFEditToCity.value          = "";
+            // EFEditArrivalTime.value     = "";
+            // EFEditDepartureTime.value   = "";
+            // EFEditFare.value            = "";
+            // EFEditSeats.value           = "";
+            // EFEditID.value              = "";
+        }
+    })
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Delete Function>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    async function deleteFlight(id) {
+        try {
+            let res = await fetch(`https://api-by-alisha-khan.onrender.com/flights/${id}`, {
+                method: "DELETE",
+            })
+            let data = await res.json();
+            console.log(data);
+            FetchFlights();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Toggle Sidebar 1 and 2>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let toggleForSidebar = document.querySelector("#opensidebar2");
+    let sideBar2 = document.querySelector("#sidebar2");
+    let closeSidebar2 = document.querySelector("#closeSideBar2");
+    let searchBar = document.querySelector("#SearchFlights");
+
+    toggleForSidebar.addEventListener("click", () => {
+        toggleForSidebar.style.display = "none";
+        sideBar2.style.display = "flex";
+        searchBar.focus();
+    })
+
+    closeSidebar2.addEventListener("click", () => {
+        toggleForSidebar.style.display = "block";
+        sideBar2.style.display = "none";
+    })
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    // let searchBar = document.querySelector("#SearchHotels"); Already Declared
+
+    searchBar.addEventListener("input", () => {
+        let filtered = [];
+        if (searchBar.value == "") {
+            filtered = allFlights;
+        }
+        else {
+            filtered = allFlights.filter(function (el) {
+                if (el.from_city.toUpperCase().includes(searchBar.value.toUpperCase()) || el.to_city.toUpperCase().includes(searchBar.value.toUpperCase()) || el.airline.toUpperCase().includes(searchBar.value.toUpperCase()) || el.flight_number.includes(searchBar.value)) {
+                    return true
+                }
+                else {
+                    return false
+                }
+            })
+        }
+        DisplayFlights(filtered);
+    })
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----SORT----->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    let sortingBtn = document.querySelector("#sortBy");
+
+    sortingBtn.addEventListener("change", () => {
+        let sorted = [];
+        if (sortingBtn.value == "") {
+            sorted = allFlights;
+        }
+        else if (sortingBtn.value == "HTL") {
+            sorted = allFlights.sort(function (a, b) {
+                return b.price - a.price;
+            })
+        }
+        else if (sortingBtn.value == "LTH") {
+            sorted = allFlights.sort(function (a, b) {
+                return a.price - b.price;
+            })
+        }
+
+        DisplayFlights(sorted);
+    })
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-------FILTER------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let DCityFilter = document.querySelector("#DCityFilter");
+    let ACityFilter = document.querySelector("#ACityFilter");
+
+    function filterdata() {
+        let filtered = [];
+
+        //When both are set to default
+        if (ACityFilter.value == "" && DCityFilter.value == "") {
+            filtered = allFlights;
+        }
+
+        //When Using only ACityFilter
+        else if (ACityFilter.value != "" && DCityFilter.value == "") {
+            filtered = allFlights.filter(function (el) {
+                return (ACityFilter.value == el.to_city) ? true : false;
+                console.log("test");
+            })
+        }
+
+        //When Using only ACityFilter
+        else if (ACityFilter.value == "" && DCityFilter.value != "") {
+            filtered = allFlights.filter(function (el) {
+                return (DCityFilter.value == el.from_city) ? true : false;
+                console.log("test");
+            })
+        }
+        else{
+            filtered=allFlights.filter(function(el){
+                return (DCityFilter.value == el.from_city && ACityFilter.value == el.to_city) ? true : false;
+            })
+        }
+
+        console.log(filtered);
+        if (filtered.length > 0) { DisplayFlights(filtered) } else { noResults() }
+    }
+
+    ACityFilter.addEventListener("change",filterdata);
+
+    DCityFilter.addEventListener("change",filterdata);
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<No Results Found>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    function noResults() {
+        mainSection.innerHTML = null;
+        let noresults = document.createElement("div");
+        noresults.className = "noResults";
+        let noResImg = document.createElement("img");
+        noResImg.src = "./noResults.png"
+        noresults.append(noResImg);
+        mainSection.append(noresults);
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Show all hotels>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let showAllFlights = document.querySelector("#showAllFlights");
+
+    showAllFlights.addEventListener("click", function () {
+        FetchFlights();
+        searchBar.value = null;
+        sortingBtn.value = "";
+        // ACityFilter.value = "";
+        // DCityFilter.value = "";
+    })
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Search>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        let adminLogOut = document.querySelector("#adminLogOut");
+
+            adminLogOut.addEventListener("click", function () {
+                localStorage.removeItem("username");
+                localStorage.removeItem("password");
+                window.location.href = "login-signup.html"
+            })
+
+
+</script>

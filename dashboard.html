@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./CSS/choicePage.css">
+</head>
+<body>
+
+    <h1 id="greeting">Welcome Admin!</h1>
+
+    <div id="manageField">
+        <a href="./manageFlights.html"><div id="editHotels" class="chooseToEdit"><img src="./plane.png" alt=""><span>Manage Flights</span></div></a>
+        <a href="./manageHotels.html"><div id="editFlights" class="chooseToEdit"><img src="./hotel.png" alt=""><span>Manage Hotels</span></div></a>
+    </div>
+    
+</body>
+</html>
+<script>
+    let username = localStorage.getItem("username") || "";
+    let password = localStorage.getItem("password") || "";
+
+    if(username!="admin@masaischool.com" || password != "unicorn"){
+        alert("Please login as Admin to access the dashboard!!!");
+        window.location.href = "login-signup.html";
+    }
+</script>

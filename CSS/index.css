@@ -1,0 +1,394 @@
+body { font-family:'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    
+}
+/* !part1 */
+.hero_title{
+    text-align: center;
+    background-color: rgb(125,141,212);
+    color: aliceblue;
+    margin-top: -3%;
+    padding-top:10% ;
+}
+.hero_title h1{
+  margin-bottom: -15px;
+}
+.hero_title> button{
+    background-color:rgb(246,152,103);
+padding: 1%;
+border-radius: 10px;
+border: none;}
+
+.hero_title> button:hover{
+    background-color:rgb(246,152,103);
+    color: white;
+    border: 1px white solid;
+    cursor: pointer;
+}
+.hero_title{
+    border-top: none;
+}
+.hero_banner > img{
+    width: 100%;
+    margin: none;
+}
+/* !part2 */
+.part2{
+    
+    margin-top: -7px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color:rgb(25,28,45) ;
+    color: aliceblue;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+
+}
+.part2Child{
+    width: 90%;
+    display: flex;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+.part2InnerChild{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    background-color: rgb(26,29,49);
+    margin: auto;
+    padding: 20px;
+    justify-content: space-between;
+    
+}
+.part2InnerChild:hover{
+    scale: 1.1;
+    cursor: pointer;
+    background-color: rgb(32,36,56);
+
+}
+.part2   p{
+    color:  rgb(109,110,121);
+}
+@media only screen and (max-width: 550px) {
+  .part2  .part2Child{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .part2  .part2Child .part2InnerChild{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+}
+/* !part3 */
+ 
+  .carousel{
+    padding-left: 20px;
+    justify-content: flex-end;
+    
+  }
+  .carousel>div{
+    
+    border-radius: 10px;
+    position: relative;
+  }
+  .carousel>div{
+    
+    border-radius: 10px;
+    position: relative;
+  }
+  .preetam{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(26,29,45);
+    color: aliceblue;
+    padding: 20px;
+  }
+  .carousel{
+    
+    background-color: rgb(26,29,45);
+  }
+  .textopimg {
+    position: relative;
+  }
+  
+  .textopimg img {
+    display: block;
+    width: min-content;
+  }
+  
+  .textopimg h4{
+    position: absolute;
+    top: 75%;
+    left: 10%;
+    /* transform: translate(-50%, -50%); */
+    margin: 0;
+    color: white;
+    /* text-align: center; */
+    
+  }.textopimg h6{
+    position: absolute;
+    top: 90%;
+    left: 10%;
+    /* transform: translate(-50%, -50%); */
+    margin: 0;
+    color: white;
+    /* text-align: center; */
+    
+  }
+  .preetam > .carausalButtons{
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+    width: 20%;
+    align-self: center;
+
+  }
+  .carausalButtons > button{
+    background-color: rgb(49,51,66);
+    border: none;
+    color: aliceblue; 
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    }
+    .carausalButtons > button:hover{
+    background-color:rgb(246,152,103);
+    
+    }
+
+    @media only screen and (max-width: 550px){
+      .preetam{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+    }
+/*  !part4 
+todo: add a background image transparent in word class
+*/
+
+.part4{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+
+background-image: url(https://www.liquidplanner.com/wp-content/uploads/2020/01/iStock-1050628028-2-1-1536x1024.jpg);
+color: aliceblue;
+
+    
+}
+.dummy{
+    display: flex;
+    width: 50%;
+}
+.words{
+    display: flex;
+    padding: 20px 20px;
+
+    width: 50%;
+    flex-direction: column;
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    
+   
+}
+.wordInnerDiv{
+    display: flex;
+    flex-direction: rows;
+    justify-content: flex-start;
+
+}
+.wordInnerInnerDiv{
+    margin: 10px;
+    
+}
+@media only screen and (max-width: 700px) {
+    .dummy{
+        display: none;
+        
+    }
+    .words{
+        padding: 20px 20px;
+        display: flex;
+        width: 90%;
+        margin: auto;
+        flex-direction: column;
+        padding-top: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        
+       
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .dummy{
+        display: none;
+        
+    }
+    .words{
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding-top: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        
+       
+    }
+    .wordInnerDiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+    }
+  }
+/* !part5 */
+/* CSS code for second carousel */
+
+.container {
+  display: flex;
+}
+
+.left-column {
+  width: 30%;
+}
+
+.right-column {
+  width: 70%;
+}
+
+.carousel2 {
+  display: flex;
+}
+
+.tex {
+  margin-right: 20px;
+}
+
+.tex:last-child {
+  margin-right: 0;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+  }
+  
+  .left-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .right-column {
+    width: 100%;
+  }
+}
+
+/* !part6 */
+
+.part6{
+    padding: 20px;
+    text-align: center;
+    text-align: center;
+    background-color:rgb(25,28,45) ;
+    margin-top: -2px;
+    padding-top: 30px;
+    color: aliceblue;
+    padding-bottom:40px ;
+    
+}
+.part6 > h5{
+   
+    color:  rgb(109,110,121);
+}
+.part6 :nth-child(1){
+   
+    color: rgb(101,114,172)
+}
+.input-icons {
+    width: 70%;
+    display: flex;
+    margin: auto;
+    height: 50px;
+    padding: 10px 10px;
+    padding-left: 20px;
+    border-radius: 50px;
+    justify-content: space-between;
+    background-color: rgb(49,52,66);
+    
+}
+.input-icons i {
+    margin-top: auto;
+    margin-bottom:auto ;
+    font-size: 30px;
+    color: rgb(184, 189, 209);
+    margin-right: 20px;
+}
+.input-icons input {
+    
+    border: none;
+    width: 90%;
+    margin-left: 0px;
+    font-size: 20px;
+    padding-left: 0px;
+  
+}
+
+.input-icons button{
+  border-radius: 50px;
+  background-color: rgb(246,152,103);
+  width: 20%;
+  margin-left: -20px;
+}
+.input-icons > button a{
+  color: aliceblue;
+}
+.part6 input{
+    background-color:rgb(49,52,66) ;
+    padding: 0%;
+  border: none;
+}
+
+.othercompanylogos a{
+    width: 25%;
+}
+
+.othercompanylogos img{
+ width: 100%;
+ 
+}
+.othercompanylogos{
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.othercompanylogos a{
+  margin: auto;
+  padding: 10px;
+}
+@media only screen and (max-width: 600px) {
+    .othercompanylogos{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .othercompanylogos a{
+      margin-left: 40%;
+      
+    }
+  }

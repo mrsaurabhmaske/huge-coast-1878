@@ -1,0 +1,112 @@
+nav{
+  display: flex;
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  padding: 10px 30px;
+  background-color:rgb(125,141,212);
+  justify-content: space-between;
+  z-index: 99999;
+
+  
+}
+nav {
+  font-size: 0.8rem; /* Set the base font size for the navbar */
+}
+
+nav a {
+  font-size: 1em; /* Set the font size to be 1.2 times the size of the parent element */
+}
+
+a{
+  text-decoration: none;
+  color:  aliceblue;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  
+  justify-content: space-evenly;
+  padding-left: 0%;
+}
+nav .mainMenu{
+  width: 60%;
+}
+
+nav .loginnav{
+  width: 10%;
+}
+nav .loginnav li button{
+  width: 80%;
+}
+nav ul li{
+  margin: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 25%;
+  justify-content: center;
+}
+nav ul li button{
+  width: 90%;
+}
+nav ul li a{
+  margin: auto;
+}
+nav .logo{
+  display: flex;
+  width:30% ;
+  flex-direction: column;
+  justify-content: center;
+}
+nav  button{
+  background: none;
+  border: none;
+  color: aliceblue;
+  transition: 0.7s ease-in-out;
+}
+nav button:hover{
+  cursor: pointer;
+  scale: 1.1;
+  border: 1px solid aliceblue;
+  border-radius: 5px;
+}
+nav .hamburger i{
+  display: none;
+}
+
+/* !trail code */
+nav .mainMenu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70%;
+  left: 75%;
+  width: 100%;
+  right: 20%;
+  padding: 0;
+  background-color: rgba(59, 89, 220, 0.7);
+  border-radius: 10px;
+  z-index: 999;
+}
+
+nav .mainMenu.active li {
+  margin: 20px 0;
+  margin-left: 0%;
+}
+
+nav .hamburger.active i {
+  transform: rotate(90deg);
+}
+
+
+@media only screen and (max-width: 750px) {
+  nav ul{
+    display: none;
+  }
+  nav .loginnav{
+    display: none;
+  }
+  nav .hamburger i{
+    display: block;
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Signup</title>
+	<link rel="stylesheet" href="./CSS/login-signup.css">
+</head>
+<body>
+	<div class="container" id="main">
+		<div class="sign-up">
+			<form id="signupForm">
+				<h1>Create Account</h1>
+				<p>Use your email for registration</p>
+				<input type="text" name="txt" placeholder="Name" required id="signupNameInput">
+				<input type="email" name="email" placeholder="Email" required id="signupEmailInput">
+				<input type="password" name="pswd" placeholder="Password" required id="signupPassInput">
+				<input type="submit" class="button" value="SIGN UP"></input>
+			</form>
+		</div>
+		<!-- ----------------------------------------------------------------------->
+		<div class="sign-in">
+			<form id="loginForm" >
+				<h1>Sign in</h1>
+				<p>Please enter your Email and Password to Login</p>
+				<label>
+					User: <input type="radio" value="user" id="userCheck" class="checkBox" name="login" checked>
+					Admin:<input type="radio" value="admin" id="adminCheck" class="checkBox"  name="login">
+				</label>
+				<input type="text" name="email" placeholder="Email" required id="loginEmailInput">
+				<input type="password" name="pswd" placeholder="Password" required id="loginPassInput">
+				<a href="#">Forget your Password?</a>
+				<input type="submit" class="button" value="SIGN IN"></input>
+			</form>
+		</div>
+		<!-- ----------------------------------------------------------------------->
+
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>Already have an account?
+						Click on the button below to login!
+					</p>
+					<button id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-right">
+					<h1>Hello, Friend</h1>
+					<p>New to Travelist?<br>
+						Enter your personal details and start your journey with us</p>
+					<button id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Fetch all users from API>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		let allUsers = [];
+
+		fetchUsers();
+
+		async function fetchUsers(){
+			try {
+				let res = await fetch("https://api-by-alisha-khan.onrender.com/users")
+				let data = await res.json();
+				console.log(data);
+				allUsers = data;
+			} catch (error) {
+				console.log(error);
+			}
+		}
+	
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<--SLiding Animation-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+		//Do not touch this portion + + + + + + + +
+
+		const signUpButton = document.getElementById('signUp');
+		const signInButton = document.getElementById('signIn');
+		const main = document.getElementById('main');
+
+		signUpButton.addEventListener('click', () => {
+			main.classList.add("right-panel-active");
+		});
+		signInButton.addEventListener('click', () => {
+			main.classList.remove("right-panel-active");
+		});
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<---Related to LOGIN/ SIGN IN--->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		let loginForm = document.querySelector("#loginForm"); 
+		let loginEmail = document.querySelector("#loginEmailInput");
+		let loginPass = document.querySelector("#loginPassInput");
+		let adminCheck = document.querySelector("#adminCheck");
+		let userCheck = document.querySelector("#userCheck")	
+
+	//---ADMIN and User Login------>
+		loginForm.addEventListener("submit",function(e){
+			e.preventDefault();
+			if(adminCheck.checked){
+				if(loginEmail.value == "admin@masai.com" && loginPass.value == "saurabh") {
+					window.location.href = "dashboard.html";
+					localStorage.setItem("username", "admin@masaischool.com");
+					localStorage.setItem("password", "unicorn");
+				}
+				else{
+					alert("Enter correct Login Credentials!");
+				}
+			}
+
+			if(userCheck.checked){
+				let flag=false;
+				for(let el of allUsers){
+					if((el.gmail==loginEmail.value || el.name == loginEmail.value) && (el.password = loginPass.value)){
+						flag=true;
+						localStorage.setItem("userName", el.name);
+						localStorage.setItem("userPass", el.password);
+						window.location.href = "choice.html";
+						break;
+					}
+				}
+				console.log(flag);
+				alert((flag)?"Login Successful": "Please check you credentials!")
+			}
+			
+		})
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<---Related to SIGN UP--->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	let signupForm = document.querySelector("#signupForm");
+	let signupName = document.querySelector("#signupNameInput");
+	let signupEmail = document.querySelector("#signupEmailInput");
+	let signupPass = document.querySelector("#signupPassInput");
+	
+	signupForm.addEventListener("submit",function(e){
+		e.preventDefault();
+
+		let obj={}
+		obj.name 			= signupName.value;
+		obj.gmail 			= signupEmail.value;
+		obj.password 		= signupPass.value;
+
+		addNewUser(obj);
+	})
+
+	async function addNewUser(obj) {
+		try {
+			let res = await fetch("https://api-by-alisha-khan.onrender.com/users",{
+				method:"POST",
+				body:JSON.stringify(obj),
+				headers:{
+					"Content-Type":"application/json"
+				}
+			})
+			let data = await res.json();
+			console.log(data);
+			fetchUsers();
+		} catch (error) {
+			console.log(error);
+		}
+	}
+	
+
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	</script>
+</body>
+</html>
