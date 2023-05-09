@@ -5,25 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Link to Slick carousel stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    
+    
+   
+    
 </head>
 <body>
-    <nav>
-         <img src="images/logo (2).png" alt="err">
-        <ul class="menu">
-            <li><i class="fa-solid fa-earth-americas fa-l">&nbsp; &nbsp;  </i><a href="##">Our World</a></li>
-            <li><i class="fa-solid fa-location-dot fa-l">&nbsp; </i> <a href="#afterDestination">Destination</a></li>
-            <li><i class="fa-solid fa-earth-americas fa-l"></i>&nbsp;<a href="">Discover</a></li>
-            <li><i class="fa-solid fa-phone fa-l"></i>&nbsp;Contact us</li>
+      <nav>
+        <div class="logo">
+          <a href="index.html
+    "><img style="width: 100%;" src="images/logo (2).png" alt=""></a>
+        </div>
+        <ul class="mainMenu">
+            <li><button onclick="scrollTopart5()"><i class="fa-solid fa-earth-americas fa-l">&nbsp; &nbsp;</i>Our World</button></li>
+            <li><button onclick="scrollToRecommend()"><i class="fa-solid fa-location-dot fa-l">&nbsp; </i> Destination</button></li>
+            <li><button><a href="bookingPage.html"><i class="fa-solid fa-earth-americas fa-l"></i> Discover</a></button></li>
+            <li><button onclick="scrollTofoot()"><i class="fa-solid fa-phone fa-l"></i> Contact us</button></li>
+            <li><button ><a href="bookingPage.html"><i class="fa-solid fa-right-to-bracket"></i></i>  Login</a></button></li>
         </ul>
-        <button class="hamburgernot"><i class="fa-solid fa-bars"></i>&nbsp;<a href="###">Login</a></button>
-        <button class="hamburger"><i class="fa-solid fa-bars"></i>&nbsp;<a href="###">Login</a></button>
-    </nav>
+        
+            
 
+        <div class="hamburger" style="display: flex;">
+          <i style="align-self: center;color: aliceblue;" class="fa-solid fa-bars fa-xl"></i>
+        </div>
+
+    </nav>
+    
     <!-- here ends the nav bar -->
     
     
@@ -42,7 +62,7 @@
                 Let's Explore The World
             </h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, numquam? <br> Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-            <button><a href="###">Book a Trip 🡭<ion-icon name="arrow-forward-circle-outline"></ion-icon></a></button>
+            <button><a href="bookingPage.html">Book a Trip 🡭<ion-icon name="arrow-forward-circle-outline"></ion-icon></a></button>
         </div>
         <div class="hero_banner">
            <img src="images/Heroimg.jpg" alt="">
@@ -64,26 +84,51 @@
             
             <div class="part2InnerChild"><i class="fa-solid fa-calendar-days fa-2xl"></i>
                 <br>
-                <h4>Schedule a Plan</h4>
+                <a href="bookingPage.html"><h4>Schedule a Plan</h4></a>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam earum odit nobis ratione ea accusamus!</p>
             </div>
             <div class="part2InnerChild">
                 <i class="fa-solid fa-globe fa-2xl"></i>
                 <br>
-                <h4>Find a Destination</h4>
+                <a href="bookingPage.html"><h4>Find a Destination</h4></a>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam earum odit nobis ratione ea accusamus!</p>
 
             </div>
             <div class="part2InnerChild"><i class="fa-solid fa-heart-circle-check fa-2xl"></i>
                 <br>
-                <h4>Enjoy Your Trip</h4>
+                <a href="bookingPage.html"><h4>Enjoy Your Trip</h4></a>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam earum odit nobis ratione ea accusamus!</p>
-        </div>
+            </div>
 
     </div>
     </div>
 
     <!-- !part3 -->
+<h5 id="destinationsrecommended" style="background-color: rgb(26,29,45); margin: -1px; padding-left: 20px;color: rgb(99,111,169);">Popular destination</h5>
+  
+<div class="preetam">
+    <h1>Recommended destination</h1>
+    <div class="carausalButtons">
+      <button id="prevButton"><i class="fa-solid fa-arrow-left fa-xl"></i></button>
+        <button id="nextButton"><i class="fa-solid fa-arrow-right fa-xl"></i></button>
+    </div>
+  </div>
+  
+  <div class="carousel" style="margin: -2px;">
+    <div class="textopimg"><img src="https://images.pexels.com/photos/1539700/pexels-photo-1539700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Leh-Ladakh</h4><h6>Leh, Jammu and Kashmir</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/2870167/pexels-photo-2870167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Jaipur</h4><h6>Jaipur, Rajasthan</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/13769652/pexels-photo-13769652.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Hampi</h4><h6>Hampi, Karnataka</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/11578849/pexels-photo-11578849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Amritsar</h4><h6>Punjab</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/4428289/pexels-photo-4428289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Goa</h4><h6>Goa, Goa</h6></div>
+    <div class="textopimg"><img src="https://assets.telegraphindia.com/telegraph/2023/Jan/1673300253_new-project-4.jpg" width="500" height="300"><h4>Darjeeling</h4><h6>Darjeeling, West Bengal</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/7104962/pexels-photo-7104962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Rishikesh</h4><h6>Rishikesh, Uttarakhand</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/11005824/pexels-photo-11005824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Munnar</h4><h6>Munnar, Kerala</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/8112531/pexels-photo-8112531.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Varanasi</h4><h6>Varanasi, Uttar Pradesh</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/7184626/pexels-photo-7184626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Khajuraho</h4><h6>Khajuraho, Madhya Pradesh</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/12912712/pexels-photo-12912712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>Jaisalmer</h4><h6>Jaisalmer, Rajasthan</h6></div>
+    <div class="textopimg"><img src="https://images.pexels.com/photos/14643521/pexels-photo-14643521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="500" height="300"><h4>TajMahal</h4><h6>Agra, Uttar Pradesh</h6></div>
+  </div>
+    <!-- !part3 ends -->
 
     <!-- !part4 -->
     <div class="part4">
@@ -109,6 +154,48 @@
 <!-- 
     !part 5
  -->
+ <!-- <div id="part5"></div>
+ <div class="container">
+  <div class="container1">
+    <button class="prev">previous</button>
+    <button class="next">next</button>
+  </div>
+  <div class="container2">
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+  </div>
+</div> -->
+<div class="container1">
+  <button id="prevButton2" class="prev">previous</button>
+  <button id="nextButton2" class="next">next</button>
+</div>
+<div class="container">
+  <div class="carousel2">
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+    <div class="tex"><img src="https://picsum.photos/200/300"></div>
+  </div>
+  
+</div>
 
  <!-- !part6 -->
  <div class="part6">
@@ -119,21 +206,31 @@
         <h5>
             Subscribe To be the first one to hear about upcoming fintech services
         </h5>
-        <input type="email" class="fa-solid fa-envelope fa-xl"placeholder="">
+        <div class="input-icons">
+          <i class="fa fa-envelope icon"></i>
+        <button type="submit">Submit</button>
+        </div>
         <br>
         <br>
-        <br>
+        
 
+        <div class="othercompanylogos">
+          <a href="https://www.travelocity.com/"><img src="https://1000logos.net/wp-content/uploads/2020/10/Travelocity-Logo.png" alt=""></a>
+          <a href="https://www.travelers.com/"><img src="images/travellersLogo.png" alt=""></a>
+          <a href="https://www.travelocity.com/"><img src="https://1000logos.net/wp-content/uploads/2020/10/Travelocity-Logo.png" alt=""></a>
+          <a href="https://www.travelers.com/"><img style="padding-top: 10px;"  src="images/travellersLogo.png" alt=""></a>
+
+        </div>
         
         <hr style="width: 80%;margin: auto;height: 1px;color:rgb(110,112,123);">
  </div>
- 
+
 
  <!-- !todopart7 -->
 
 <!-- ?footer -->
 
-<footer>
+<footer id="footer">
     <div class="footer1stPart">
         <div class="footer1stPartInnerChild" id="1">
             <img src="images/logo (2).png" alt="">
@@ -173,7 +270,7 @@
     </div>
     <div class="footer2ndPart">
         <div class="part2ndLeft">
-            <h5>2021 © Hilling. All right reserved.</h5>
+            <h5>2023 © Travelish. All right reserved.</h5>
             <br>
         </div>
         <div class="part2ndRight">
@@ -184,8 +281,85 @@
         </div>
     </div>
 </footer>
- <script src="src/index.js"></script>
 
-    
+
+<script src="src/index.js"></script>
+<script src="src/nav.js"></script>
+<!-- !carausal -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>   
 </body>
+<script>
+
+  // !carausal 1 -->
+    $(document).ready(function() {
+  $('.carousel').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    
+   
+    responsive: [
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+    // your other carousel settings here
+  });
+
+  $('#prevButton').click(function() {
+    $('.carousel').slick('slickPrev');
+  });
+
+  $('#nextButton').click(function() {
+    $('.carousel').slick('slickNext');
+  });
+});
+
+
+// !carausal 2 -->
+
+$(document).ready(function() {
+    $('.carousel2').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
+    $('#prevButton2').click(function() {
+      $('.carousel2').slick('slickPrev');
+    });
+
+    $('#nextButton2').click(function() {
+      $('.carousel2').slick('slickNext');
+    });
+  });
+
+</script>
 </html>

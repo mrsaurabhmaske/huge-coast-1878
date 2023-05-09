@@ -1,6 +1,6 @@
 footer{
     
-    background-color:rgb(25,28,45) ;
+background-color:rgb(25,28,45) ;
 padding-top: 30px;
 color: aliceblue;}
 
@@ -44,3 +44,29 @@ color: aliceblue;}
     text-align: center;
     align-self: center;
 }
+.footer1stPartInnerChild{
+    padding: 30px;
+}
+@media only screen and (max-width: 700px) {
+    .footer1stPart{
+        
+        flex-direction: column;
+        margin: auto;
+    }
+    .part2ndRight{
+        display: none;
+        align-self: center;
+    }
+    .footer1stPartInnerChild{
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+    .part2ndLeft{
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+    @media only screen and (max-width: 500px) {
+        
+        
+    }

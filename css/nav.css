@@ -1,87 +1,111 @@
 nav{
-    display: flex;
-    background-color:rgb(125,141,212);
-    position: -webkit-sticky;
-    position: sticky;
-    width: auto;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 30px;
-    top: 0;
+  display: flex;
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  padding: 10px 30px;
+  background-color:rgb(125,141,212);
+  justify-content: space-between;
+  z-index: 99999;
+
   
 }
-nav > ul{
-    width: 60%;
-    display: flex;
-list-style-type: none;
-justify-content: space-between;
+nav {
+  font-size: 0.8rem; /* Set the base font size for the navbar */
+}
 
-color: white;
+nav a {
+  font-size: 1em; /* Set the font size to be 1.2 times the size of the parent element */
 }
-nav >ul> li{
-    width: 100%/4;
-    margin: 10px;
-    color: white;
-    padding: 5px;
 
-}
-nav >ul> li:hover{
-    
-    
-    border: 1px solid white;
-    cursor: pointer;
-    background-color: rgb(170, 181, 229);
-    border-radius: 5px;
-
-}
-nav >button:hover{
-    
-    
-    border: 1px solid white;
-    cursor: pointer;
-    background-color: rgb(170, 181, 229);
-    border-radius: 5px;
-
-}
-nav > img{
-width: 15%;
-}
-nav>button{
-    background-color: rgb(125,141,212);
-    border: 1px white solid;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 10%;
-    border-radius: 30px;
-}
 a{
-    text-decoration:none;
-    color: white;
+  text-decoration: none;
+  color:  aliceblue;
 }
-.hamburger{
+nav ul{
+  display: flex;
+  list-style: none;
+  
+  justify-content: space-evenly;
+  padding-left: 0%;
+}
+nav .mainMenu{
+  width: 60%;
+}
+
+nav .loginnav{
+  width: 10%;
+}
+nav .loginnav li button{
+  width: 80%;
+}
+nav ul li{
+  margin: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 25%;
+  justify-content: center;
+}
+nav ul li button{
+  width: 90%;
+}
+nav ul li a{
+  margin: auto;
+}
+nav .logo{
+  display: flex;
+  width:30% ;
+  flex-direction: column;
+  justify-content: center;
+}
+nav  button{
+  background: none;
+  border: none;
+  color: aliceblue;
+  transition: 0.7s ease-in-out;
+}
+nav button:hover{
+  cursor: pointer;
+  scale: 1.1;
+  border: 1px solid aliceblue;
+  border-radius: 5px;
+}
+nav .hamburger i{
+  display: none;
+}
+
+/* !trail code */
+nav .mainMenu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  width: 100%;
+  padding: 0;
+  background-color: rgb(125,141,212, 0.4);
+  border-radius: 10px;
+  z-index: 999;
+}
+
+nav .mainMenu.active li {
+  margin: 20px 0;
+  margin-left: 0%;
+}
+
+nav .hamburger.active i {
+  transform: rotate(90deg);
+}
+
+
+@media only screen and (max-width: 750px) {
+  nav ul{
     display: none;
-}
-nav   > ul> .login-1{
-    display: none;
-}
-/* 
-!hamberger
-*/
-@media screen and (max-width: 800px) {
-    nav ul.menu {
-      display: none;
-    }
-    .hamburgernot{
-        display: none;
-    }
-    nav   > ul> .login-1{
-    display: none;
-}
-    
-    nav button.hamburger {
-      display: block;
-      margin-right: 10px;
-    }
   }
+  nav .loginnav{
+    display: none;
+  }
+  nav .hamburger i{
+    display: block;
+  }
+}
