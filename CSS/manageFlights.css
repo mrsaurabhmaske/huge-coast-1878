@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(178, 161, 255);
+}
+
+#sidebar {
+    font-size: 25px;
+    text-align: center;
+    width: 15%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    background-color: rgb(71, 54, 148);
+    position: fixed;
+    top: 15%;
+    left: 0;
+    animation: SlideRight 0.5s;
+    border-radius: 0px 15px 15px 0px;
+}
+
+#sidebar2 {
+    font-size: 25px;
+    text-align: center;
+    width: 15%;
+    padding: 0px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    background-color: rgb(71, 54, 148);
+    border-radius: 20px;
+    position: fixed;
+    right: 0px;
+    top: 20%;
+    animation: SlideLeft .5s;
+    border-radius: 20px 0px 0px 20px;
+}
+
+#opensidebar2 {
+    background-color: rgb(71, 54, 148);
+    padding: 20px;
+    width: 200px;
+    position: fixed;
+    right: 20px;
+    top: 40%;
+    color: white;
+    font-size: 20px;
+    border-radius: 60px 0px 0px 60px;
+    animation: SlideLeft .5s;
+}
+
+#adminLogOut:hover {
+    background-color: #B80046;
+    color: white;
+}
+
+label {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    background-color: rgb(89, 68, 185);
+}
+
+.lefttop {
+    border-radius: 0px 15px 0px 0px;
+}
+
+.leftbottom {
+    border-radius: 0px 0px 15px 0px;
+}
+
+.righttop {
+    border-radius: 15px 0px 0px 0px;
+}
+
+.rightbottom {
+    border-radius: 0px 0px 0px 15px;
+}
+
+#addNewFlightBar {
+    display: flex;
+    animation: SlideRight 1s;
+}
+
+#editFlightBar {
+    display: none;
+    animation: SlideRight 1s;
+}
+
+#openAddNewFlight {
+    display: none;
+    animation: SlideDown 2s;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(186, 171, 255);
+    color: black;
+    font-size: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+button {
+    background-color: rgb(71, 51, 158);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+button:hover {
+    background-color: orange;
+    color: black;
+    font-weight: bolder;
+    transition: all .5s;
+}
+
+select {
+    background-color: rgb(159, 138, 255);
+    color: black;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+option {
+    background-color: rgb(219, 209, 255);
+    color: black;
+    font-size: 15px
+}
+
+#mainSection {
+    width: 55%;
+    margin: auto;
+    padding: 10px;
+}
+
+#head {
+    text-align: center;
+    color: rgb(50, 50, 93);
+    font-size: 25px;
+    border-radius: 50px;
+    background-color: rgb(92, 48, 194);
+    color: rgb(194, 182, 250);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 0px 150px 0px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: SlideDown 1s;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#head>div:first-child {
+    width: 16%;
+}
+
+#head>div:last-child {
+    animation: SlideRight 1.5s;
+}
+
+#head img {
+    width: 100%;
+    border-radius: 30px;
+    background-color: rgb(105, 61, 207);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 15px;
+    animation: SlideLeft 3s;
+
+}
+
+#head span {
+    background-color: rgb(194, 182, 250);
+    color: red;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.cardlist {
+    width: 80%;
+    margin: auto;
+    animation: transitionIn .5s;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(171, 153, 255);
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 15px;
+    transition: all 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.card div {
+    /* border: 1px solid white; */
+}
+
+.card:hover {
+    background-color: rgb(155, 132, 255);
+    transform: scale(1.03);
+    transition: all 0.1s;
+}
+
+.imageSection {
+    text-align: center;
+    width: 10%;
+    padding: 5px;
+    border-radius: 30px 30px;
+}
+
+.flightNum {
+    color: blue;
+    font-weight: bold;
+    padding: 3px;
+
+}
+
+.airline {
+    margin-top: 10px;
+    color: #B80046;
+    font-weight: bolder;
+    padding: 5px;
+    font-size: 15px;
+    background-color: rgb(171, 153, 255);
+    border-radius: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.infoUpper {
+    display: flex;
+    background-color: rgb(171, 153, 255);
+    border-radius: 50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.infoUpper * {
+    padding: 5px 20px;
+
+}
+
+.cityDiv {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    color: #5000b8;
+}
+
+.midDiv {
+    text-align: center;
+}
+
+.midTop {
+    border-bottom: 1px solid black;
+}
+
+.infoLower {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    border-radius: 50px;
+}
+
+.infoLower>div {
+    border-radius: 50px;
+    padding: 1px 5px 1px 5px;
+    background-color: rgb(171, 153, 255);
+}
+
+.buttonSection {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.cardButton {
+    background-color: rgb(151, 128, 255);
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#TimeSelect {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#TimeSelect>input {
+    padding: 5px;
+    color: white;
+    background-color: rgb(106, 82, 212);
+    box-shadow: none;
+}
+
+#TimeSelect>input::-webkit-calendar-picker-indicator {
+    background-color: rgb(151, 128, 255);
+    border-radius: 50px;
+}
+
+.deleteOption {
+    padding: 10px;
+    color: white;
+    background-color: rgb(134, 32, 32);
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.noResults {
+    width: 60%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.noResults>img {
+    width: 100%;
+    mix-blend-mode: color-burn;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Main Section Loader>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+@keyframes ldio-f9dd3opjeia {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.ldio-f9dd3opjeia>div>div {
+    transform-origin: 100px 100px;
+    animation: ldio-f9dd3opjeia 3.0303030303030303s linear infinite;
+    opacity: 0.8
+}
+
+.ldio-f9dd3opjeia>div>div>div {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px 0 0 0;
+    transform-origin: 100px 100px;
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(1) {
+    animation-duration: 0.7575757575757576s
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(1)>div {
+    background: #e15b64;
+    transform: rotate(0deg);
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(2) {
+    animation-duration: 1.0101010101010102s
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(2)>div {
+    background: #f47e60;
+    transform: rotate(0deg);
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(3) {
+    animation-duration: 1.5151515151515151s
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(3)>div {
+    background: #f8b26a;
+    transform: rotate(0deg);
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(4) {
+    animation-duration: 3.0303030303030303s
+}
+
+.ldio-f9dd3opjeia>div div:nth-child(4)>div {
+    background: #abbd81;
+    transform: rotate(0deg);
+}
+
+.loadingio-spinner-wedges-b26wzcixxz {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-top: 100px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.ldio-f9dd3opjeia {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+    /* see note above */
+
+}
+
+.ldio-f9dd3opjeia div {
+    box-sizing: content-box;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Main Section Loader End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/*  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CSS For loader >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+
+}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CSS For loader END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/* ------------------Animations-------------------- */
+@keyframes SlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes SlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes SlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes SlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
