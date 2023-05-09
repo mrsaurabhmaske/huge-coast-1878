@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelish.com</title>
+    <link rel="stylesheet" href="./CSS/hotel.css">
+</head>
+<body>
+    <!-- ----------------------------------header div-------------------------------------- -->
+    <header> 
+         <!-- ----------------------------------tag Line------------------------------------------- -->
+         <div id="logOutButton">Log Out<span></span></div>
+            
+        <h1 class="searchContainer_tagLine">Choose from a wide range of Hotels available on Travelist</h1>
+        
+        <!-- -------------------------------search widget------------------------------------------------- -->
+
+        <div class="searchContainer_widget">
+            
+             <!-- ---------------------------input location------------------------------- -->
+            <div class="searchContainer_div">
+                <input class="searchContainer_input" type="text" placeholder="Search by city,hotel, or neighborhood" required>
+                <span></span>
+            </div>
+             <!-- -----------------------------date------------------------------------ -->
+            <div class="searchContainer_data">
+                <span class="date_checkin">
+                    <!-- Enter todays date -->
+                    <input type="date" id="tod_date"  >
+                </span>
+                <span class="arrow">-</span>
+                <span class="data_checkout">
+                    <!-- Enter next date -->
+                    <input type="date"  id="tom_date">
+                </span>
+                
+            </div>
+             <!-- ----------------------------Rooms and guests---------------------------- -->
+            <div class="guestRoomPicker">
+                <div class="guestRoomPicker_count">
+                    <!-- take value of number of guests and rooms -->
+                </div>
+                <span></span>
+            </div>
+             <!-- -----------------------------search button------------------------------------ -->
+            <div class="searchContainer_buttondiv">
+                <button class="searchbtn">Search</button>
+            </div>
+        </div>
+         <!-- -----------------------------------Recent search------------------------------------------- -->
+        <div class="recentSearch">
+            <h2 class="recentSearch_heading">
+                <span>Continue your search</span>
+            </h2>
+            <div class="recentSearch_items">
+
+                <!--Use DOM to Enter data here in form of:
+                <span class="recentSearch_location">Lucknow</span>
+                <span class="recentSearch_dot">·</span>
+                <span class="recentSearch_date">03 May - 04 May | 2 Guests</span> -->
+
+            </div>
+
+        </div>
+    </header>
+     <!-- ----------------------------------header ends------------------------------------------- -->
+
+      <!-- ------------------------------------Body container--------------------------------------- -->
+
+      <div class="body_container">
+
+            <aside class="filter_sidebar">
+                    <div class="filters">
+                            <div class="sort_div">
+                                <h4>Sort By:</h4>
+                                <select name="sort" id="sort">
+                                    <option value="">Select</option>
+                                    <option value="rating">Guests Rating</option>
+                                    <option value="price_lowtoHigh">Price Low to High</option>
+                                    <option value="price_hightoLow">Price High to Low</option>
+                                </select>
+                            </div>
+                            <div class="filter_price">
+                                <h4>Price Range</h4>
+                                <label for=""><input type="checkbox" name="500to2000" id="500to2000">₹500 - ₹2000</label>
+                                <label for=""><input type="checkbox" name="2000to5000" id="2000to5000">₹2001 - ₹5000</label>
+                                <label for=""><input type="checkbox" name="5000to10000" id="5000to10000">₹5001 - ₹10000</label>
+                                <label for=""><input type="checkbox" name="10000to40000" id="10000to40000">₹10000+</label>
+                            </div>
+                            <div class="filter_accomodation">
+                                <h4>Accomodation Type</h4>
+                                <label for="Vilas"><input type="checkbox" name="Vilas" id="Vilas">Villas</label>
+                                <label for="Hotel"><input type="checkbox" name="Hotel" id="Hotel">Hotels</label>
+                                <label for="Resort"><input type="checkbox" name="Resort" id="Resort">Resort</label>
+                                <label for="Homestay"><input type="checkbox" name="Homestay" id="Homestay">Homestay</label>
+                            </div>
+                            <div class="filter_category">
+                                <h4>Category</h4>
+                                <label for="Classic"><input type="checkbox" name="Classic" id="classic">Classic</label>
+                                <label for="Premium"><input type="checkbox" name="Premium" id="premium">Premium</label>
+                                <label for="Luxury"><input type="checkbox" name="Luxury" id="luxury">Luxury</label>
+
+                            </div>
+                            <div class="filter_rating">
+                                <h4>Rating</h4>
+                                <label for="rating-5"><input type="checkbox" name="rating-5" id="rating-5">5 stars</label>
+                                <label for="rating-4"><input type="checkbox" name="rating-4" id="rating-4">4 to 5</label>
+                                <label for="rating-3"><input type="checkbox" name="rating-3" id="rating-3">3 to 4 stars</label>
+                                <label for="rating-2"><input type="checkbox" name="rating-2" id="rating-2">2 to 3stars</label>
+                                <label for="rating-1"><input type="checkbox" name="rating-1" id="rating-1">1 to 2stars</label>
+                            </div>
+
+
+                    </div>
+            </aside>
+
+            <section id="data_container">
+                <div id="data-list-wrapper">
+                    <!-- Use DOM to Display data here -->
+                </div>
+                <div id="pagination-wrapper">
+                    <!-- Use DOM to Display data here -->
+                </div>
+            </section>
+      </div>
+
+</body>
+<script src="./hotels.js"></script>
+</html>

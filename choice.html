@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Hotels/ Flights</title>
+    <link rel="stylesheet" href="./CSS/choicePage.css">
+</head>
+<body>
+    <div id="logOutButton">Log Out<span></span></div>
+    <h1 id="greeting">Welcome, <span id="greetFor"></span>!</h1>
+
+    <div id="manageField">
+        <a href="./flight.html"><div id="editHotels" class="chooseToEdit"><img src="./plane.png" alt=""><span>Book a Flight</span></div></a>
+        <a href="./hotels.html"><div id="editFlights" class="chooseToEdit"><img src="./hotel.png" alt=""><span>Book a Hotel</span></div></a>
+    </div>
+    
+</body>
+</html>
+<script>
+    let userName = localStorage.getItem("userName") || "x";
+    console.log(userName)
+    let greetFor = document.querySelector("#greetFor");
+    greetFor.textContent = userName;
+
+    if(userName=="x"){
+        window.location.href = "login-signup.html";
+        alert("Please login First!!!");
+    }
+
+    let userLogOut = document.querySelector("#logOutButton");
+    userLogOut.addEventListener("click",function(){
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userPass");
+        window.location.href = "login-signup.html";
+    })
+
+
+
+
+</script>

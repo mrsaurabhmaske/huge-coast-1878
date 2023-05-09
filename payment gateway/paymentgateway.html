@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<div class="container">
+    
+
+    <form action="">
+
+        <div class="row">
+
+            
+
+
+            <div class="col">
+
+                <h3 class="title">payment</h3>
+
+                <div class="inputBox">
+                    <span>cards accepted :</span>
+                    <img src="images/card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span>name on card :</span>
+                    <input type="text" id="cardname" placeholder="mr. john deo">
+                </div>
+                <div class="inputBox">
+                    <span>credit card number :</span>
+                    <input  type="text" type="number" id="telle" maxlength="19"] placeholder="1111-2222-3333-4444">
+                </div>
+                <!-- <div class="inputBox">
+                    <span>exp month/y :</span>
+                    <input type="text" placeholder="january">
+                </div> -->
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>Exp Month/Year :</span>
+                        <input type="month" id="cardexp" placeholder="">
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="password" maxlength="3" id="cvv"  placeholder="123">
+                    </div>
+                   
+                </div>
+                <img class="card" src="./images/giphy.gif" alt="">
+                <!-- https://paysend.com/images/paysend_card_(eng)_1200x600%20(2)_1.png -->
+                <!-- https://s3.amazonaws.com/womencount/app/uploads/2015/10/05203621/CVV-Visa-MC.png -->
+            </div>
+            
+    
+        </div>
+
+        <input id="submit" href="./paymentCONFIRM.html" type="submit" value="proceed to checkout" class="submit-btn">
+       
+    </form>
+
+</div>    
+    
+</body>
+<script>
+    let paynow=document.getElementById("submit")
+    let form=document.querySelector("form")
+    form.addEventListener("submit",(event)=>{
+        event.preventDefault()
+        let cardname=document.getElementById("cardname");
+        if(cardname.value==""){
+            alert("Please enter your name")
+            return 
+        }
+        let telle=document.getElementById("telle");
+        if(telle.value==""){
+            alert("Please enter your card number")
+        }
+        let cardexp=document.getElementById("cardexp");
+        if(cardexp.value==""){
+            alert("Please enter Expiry date of your card")
+            return
+        }
+        let cvv=document.getElementById("cvv");
+        if(cvv.value==""){
+            alert("Please enter your three digit cvv")
+            return
+        }
+        
+        
+        
+        window.location.href="./paymentCONFIRM.html"
+    })
+
+    var tele = document.querySelector('#telle');
+
+    tele.addEventListener('keyup', function(e){
+       
+    if (event.key != 'Backspace' && (tele.value.length === 4 || tele.value.length === 9 || tele.value.length === 14)){
+    tele.value += '-';
+    }
+    });
+
+    
+</script>
+</html>

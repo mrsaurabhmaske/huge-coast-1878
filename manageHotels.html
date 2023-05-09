@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Hotels</title>
+    <link rel="stylesheet" href="./CSS/manageHotels.css">
+</head>
+<body>
+    <div id="sidebar">
+        <label class="lefttop">
+            <button id="showAllHotels">Show All Hotels</button>
+        </label>
+
+        <label id="addNewHotelBar" class="leftbottom">
+            ADD NEW HOTEL
+            <input type="text" placeholder="Enter Name of the Hotel" id="EHAddName">
+            <input type="text" placeholder="Enter Location" id="EHAddLocation">
+            <input type="number" placeholder="Enter Price per Night" id="EHAddPrice">
+            <input type="text" placeholder="Enter description" id="EHAddDescription">
+            <input type="number" placeholder="Enter Initial Rating" id="EHAddRating">
+            <select id="EHAddCategory">
+                <option value="" hidden>Select Category</option>
+                <option value="Vilas">Villa</option>
+                <option value="Homestay">Homestay</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Resort">Resort</option>
+            </select>
+            <input type="text" placeholder="Enter Image URL" id="EHAddImage">
+            <button id="EHAddBtn">Add</button>
+        </label>
+
+        <label id="openAddNewHotel"><button>Add New Hotel</button></label>
+
+        <label id="editHotelBar" class="leftbottom">
+            EDIT MODE
+            <input type="text" placeholder="ID" id="EHEditID" disabled>
+            <input type="text" placeholder="Edit Name of the Hotel" id="EHEditName">
+            <input type="text" placeholder="Edit Location" id="EHEditLocation">
+            <input type="number" placeholder="Edit Price per Night" id="EHEditPrice">
+            <input type="text" placeholder="Edit Description" id="EHEditDescription">
+            <input type="number" placeholder="Enter Rating" id="EHEditRating">
+            <select name="category" id="EHEditCategory">
+                <option value="" hidden>Select Category</option>
+                <option value="Vilas">Villa</option>
+                <option value="Homestay">Homestay</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Resort">Resort</option>
+            </select>
+            <input type="text" placeholder="Enter Image URL" id="EHEditImage">
+            <button id="EHSaveChanges">Save Changes</button>
+        </label>
+    </div>
+
+    <div id="opensidebar2">
+        <marquee behavior="alternate" scrollamount="2">More options</marquee> 
+    </div>
+
+    <div id="sidebar2">
+        <label class="righttop">
+            <button id="adminLogOut">Log Out</button>
+        </label>
+
+        <label>Search for Hotels
+            <input type="text" placeholder="Search by Name/ Location" id="SearchHotels">
+        </label>
+
+        <label>
+            SORT BY
+            <select id="sortBy">
+                <option value="" hidden>Select</option>
+                <option value="R-HTL">Rating - High to Low</option>
+                <option value="R-LTH">Rating - Low to high</option>
+                <option value="P-HTL">Price - High to Low</option>
+                <option value="P-LTH">Price - Low to high</option>
+            </select>
+        </label>
+        
+        <label>
+            Filter By
+            <select name="category" id="categoryFilter">
+                <option value="x" hidden>Category - None</option>
+                <option value="Vilas">Villa</option>
+                <option value="Homestay">Homestay</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Resort">Resort</option>
+            </select>
+
+            <select name="rating" id="ratingFilter">
+                <option value="x" hidden>Rating - None</option>
+                <option value="lessThanTwo">Less than 2.0</option>
+                <option value="twoToFour">2.0 to 4.0</option>
+                <option value="moreThanFour">4.0 or more</option>
+            </select>
+        </label>
+        <label class="rightbottom">
+            <button id="closeSideBar2">Close-></button>
+        </label>
+    </div>
+    
+    <div id="mainSection">
+        <div id="head">
+            <div>
+                <a href="./dashboard.html"><img src="./hotel.png" alt=""></a>
+            </div>
+
+            <div>
+                <h1 id="greeting">Welcome Admin</h1>
+                <h3>Total results: <span>0</span></h3>
+            </div>
+
+        </div>
+        <div id="data-display-container">
+            <div class="loadingio-spinner-wedges-b26wzcixxz">
+                <div class="ldio-f9dd3opjeia">
+                    <div>
+                        <div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Admin Validation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    let username = localStorage.getItem("username") || "";
+    let password = localStorage.getItem("password") || "";
+    if (username != "admin@masaischool.com" || password != "unicorn") {
+        window.location.href = "login-signup.html";
+        alert("You do not have Admin Access!!!");
+    }
+
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Admin Validation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    let allHotels = [];
+    let hotelCount = document.querySelector("#head>div span");
+    console.log(hotelCount);
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ooooooooooooo>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let mainSection = document.querySelector("#data-display-container");
+    let sidebarAddNewHotel = document.querySelector("#addNewHotelBar");
+    let sidebarEditHotel = document.querySelector("#editHotelBar")
+    let toggleSectionButton = document.querySelector("#openAddNewHotel");
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ooooooooooooo>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let EHAddName           = document.querySelector("#EHAddName");
+    let EHAddLocation       = document.querySelector("#EHAddLocation");
+    let EHAddPrice          = document.querySelector("#EHAddPrice");
+    let EHAddDescription    = document.querySelector("#EHAddDescription");
+    let EHAddRating         = document.querySelector("#EHAddRating");
+    let EHAddCategory       = document.querySelector("#EHAddCategory");
+    let EHAddImage          = document.querySelector("#EHAddImage");
+    let EHAddBtn            = document.querySelector("#EHAddBtn")
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ooooooooooooo>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let EHEditID            = document.querySelector("#EHEditID");
+    let EHEditName          = document.querySelector("#EHEditName");
+    let EHEditLocation      = document.querySelector("#EHEditLocation");
+    let EHEditPrice         = document.querySelector("#EHEditPrice");
+    let EHEditDescription   = document.querySelector("#EHEditDescription");
+    let EHEditRating        = document.querySelector("#EHEditRating");
+    let EHEditCategory      = document.querySelector("#EHEditCategory");
+    let EHEditImage         = document.querySelector("#EHEditImage");
+    let EHSaveBtn           = document.querySelector("#EHSaveChanges");
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<To Add new Hotel>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    async function addHotel(obj){
+        try {
+            let res = await fetch("https://api-by-alisha-khan.onrender.com/hotels/",{
+                method:"POST",
+                body:JSON.stringify(obj),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            })
+            let data = await res.json();
+            console.log(data);
+            FetchHotels();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    EHAddBtn.addEventListener("click",function(){
+        if( EHAddName.value             ==""||
+            EHAddLocation.value         ==""||
+            EHAddPrice.value            ==""||
+            EHAddDescription.value      ==""||
+            EHAddRating.value           ==""||
+            EHAddCategory.value         ==""||
+            EHAddImage.value            ==""){
+                console.log(123)
+                alert("Please fill all the details Properly :)")}
+        else{
+            console.log(321)
+
+        let obj={};
+        obj.name            = EHAddName.value;
+        obj.location        = EHAddLocation.value;
+        obj.price           = EHAddPrice.value;
+        obj.description     = EHAddDescription.value;
+        obj.rating          = EHAddRating.value;
+        obj.category        = EHAddCategory.value;
+        obj.image           = EHAddImage.value;
+
+        addHotel(obj);
+        console.log(obj)
+
+        EHAddName.value = "";
+        EHAddLocation.value = "";
+        EHAddPrice.value = "";
+        EHAddDescription.value = "";
+        EHAddRating.value = "";
+        EHAddCategory.value = "";
+        EHAddImage.value = "";
+        EHAddBtn.value = "";
+            }
+    })
+
+    toggleSectionButton.addEventListener("click",function(){
+        sidebarAddNewHotel.style.display = "flex";
+        sidebarEditHotel.style.display = "none";
+        toggleSectionButton.style.display = "none";
+    })
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Add Hotels END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<To Display Hotels>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        FetchHotels();
+    async function FetchHotels() {
+            try {
+                let res = await fetch("https://api-by-alisha-khan.onrender.com/hotels/")
+                let data = await res.json();
+                allHotels=data;
+                console.log(allHotels)
+                hotelCount.innerText = data.length;
+                DisplayHotels(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+    function DisplayHotels(data){
+        mainSection.innerHTML=null;
+
+        hotelCount.innerText = data.length;
+
+        let cardlist = document.createElement("div");
+        cardlist.className = "cardlist";
+
+        data.forEach(element => {
+            let card    = document.createElement("div");
+            card.className = "card";
+
+            let imageSection     = document.createElement("div");
+            imageSection.className = "imageSection";
+            let img = document.createElement("img");
+            img.src = element.image;
+            imageSection.append(img)
+            
+            let infoSection        = document.createElement("div");
+            infoSection.className="infoSection";
+            let name        = document.createElement("h2");
+            let description = document.createElement("p");
+            let location    = document.createElement("p");
+            let PandR = document.createElement("div");
+            let price       = document.createElement("p");
+            let rating      = document.createElement("p");
+
+            name.textContent          = element.name;
+            description.textContent   = element.description;
+            location.textContent      = `Location : ${element.location}`;
+            price.textContent       = `Price :   ${element.price}`;
+            rating.textContent        = `Rating : ${element.rating}`;
+
+            let buttonSection = document.createElement("div");
+            buttonSection.className = "buttonSection";
+
+            let editBtn = document.createElement("div");
+            editBtn.className = "cardButton";
+            editBtn.setAttribute("id","hotelEdit");
+            editBtn.textContent = "EDIT";
+
+            // EventListner for Edit Button
+            editBtn.addEventListener("click",function(){
+                //Animation------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                editBtn.innerHTML=null;
+                let loader = document.createElement("div");
+                loader.className = "lds-dual-ring" ;
+                editBtn.append(loader);
+                editBtn.style.paddingBottom = "2px";
+                editBtn.style.paddingRight = "2px";
+                setTimeout(() => {
+                    editBtn.innerHTML = null;
+                    editBtn.textContent = "EDIT";
+                    editBtn.style.padding = "15px";
+                    sidebarAddNewHotel.style.display = "none";
+                    sidebarEditHotel.style.display = "flex";
+                    toggleSectionButton.style.display = "flex";
+                    EHEditID.value = element.id;
+                    EHEditName.value = element.name;
+                    EHEditLocation.value = element.location;
+                    EHEditPrice.value = element.price;
+                    EHEditDescription.value = element.description;
+                    EHEditRating.value = element.rating;
+                    EHEditImage.value = element.image;
+                }, 500);
+                //Animation------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            })
+
+            let deleteBtn = document.createElement("div");
+            deleteBtn.className     = "cardButton";
+            deleteBtn.setAttribute("id", "hotelDelete");
+            deleteBtn.textContent   = "DELETE";
+
+            deleteBtn.addEventListener("click",function(){
+                deleteBtn.innerHTML=null;
+                setTimeout(() => {
+                    deleteBtn.textContent = "DELETE";
+                    deleteBtn.style.backgroundColor="rgb(171, 153, 255)";
+                }, 4300);
+                setTimeout(() => {
+                    deleteBtn.textContent = "NO!";
+                    deleteBtn.style.backgroundColor = "rgb(51, 172, 51)";
+                }, 4000);
+
+                let yesBtn = document.createElement("button");
+                yesBtn.className = "deleteOption";
+                yesBtn.textContent = "Confirm Deletion?";
+                yesBtn.addEventListener("click",function(){
+                    let id = element.id;
+                    card.style.backgroundColor = "#840032";
+                    card.style.Color = "white";
+                    deleteHotel(id);
+                })
+
+                deleteBtn.append(yesBtn);  
+            })
+
+            buttonSection.append(editBtn,deleteBtn)
+
+            PandR.append(location,  price,rating)
+            infoSection.append(name, description, PandR);
+            card.append(imageSection, infoSection,buttonSection)
+            cardlist.append(card);
+        });
+        mainSection.append(cardlist);
+    }
+   
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<EDIT HOTEL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    async function editHotels(obj,id){
+        try {
+            let res = await fetch(`https://api-by-alisha-khan.onrender.com/hotels/${id}`, {
+                method: "PATCH",
+                body: JSON.stringify(obj),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            })
+            let data = await res.json();
+            console.log(data);
+            FetchHotels();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    EHSaveBtn.addEventListener("click",()=>{
+        if(EHEditID.value == ""|| EHEditName.value == ""|| EHEditLocation.value=="" || EHEditDescription.value==""){
+            alert("Please select a Hotel you wish to edit details for...")
+        }
+        else{
+            let obj = {};
+            obj.name        = EHEditName.value;
+            obj.location    = EHEditLocation.value;
+            obj.price       = EHEditPrice.value;
+            obj.description = EHEditDescription.value;
+            obj.rating      = EHEditRating.value;
+            obj.category    = EHEditCategory.value;
+            obj.image       = EHEditImage.value;
+
+            let id = EHEditID.value;
+
+            editHotels(obj,id);
+
+            EHEditID.value = "";
+            EHEditName.value = "";
+            EHEditLocation.value = "";
+            EHEditPrice.value = "";
+            EHEditDescription.value = "";
+            EHEditRating.value = "";
+            EHEditCategory.value = "";
+            EHEditImage.value = "";
+        }
+    })
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Delete Hotel Function>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    async function deleteHotel(id){
+        try {
+            let res = await fetch(`https://api-by-alisha-khan.onrender.com/hotels/${id}`, {
+                method: "DELETE",
+            })
+            let data = await res.json();
+            console.log(data);
+            FetchHotels();
+        } catch (error) {
+            console.log(error);
+        }
+        }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Toggle Sidebar 1 and 2>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let toggleForSidebar = document.querySelector("#opensidebar2");
+    let sideBar2 = document.querySelector("#sidebar2");
+    let closeSidebar2 = document.querySelector("#closeSideBar2");
+    let searchBar = document.querySelector("#SearchHotels");
+
+    toggleForSidebar.addEventListener("click",()=>{
+        toggleForSidebar.style.display = "none";
+        sideBar2.style.display="flex";
+        searchBar.focus();
+    })
+  
+    closeSidebar2.addEventListener("click", () => {
+            toggleForSidebar.style.display = "block";
+            sideBar2.style.display = "none";
+    })
+        //let searchBar = document.querySelector("#SearchHotels"); Already Declared
+
+    searchBar.addEventListener("input",()=>{
+            let filtered=[];
+            if(searchBar.value==""){
+                filtered = allHotels;
+            }
+            else{
+                filtered = allHotels.filter(function(el){
+                    if(el.name.toUpperCase().includes(searchBar.value.toUpperCase()) || el.location.toUpperCase().includes(searchBar.value.toUpperCase()) ){
+                        return true
+                    }
+                    else{
+                        return false
+                    }
+                })
+            }
+            DisplayHotels(filtered);
+        })
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----SORT----->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    let sortingBtn = document.querySelector("#sortBy");
+
+    sortingBtn.addEventListener("change",()=>{
+            let sorted=[];
+            if(sortingBtn.value==""){
+                sorted=allHotels;
+            }
+            else if(sortingBtn.value=="R-HTL"){
+                sorted = allHotels.sort(function(a,b){
+                    return b.rating-a.rating;
+                })
+            }
+            else if (sortingBtn.value == "R-LTH") {
+                sorted = allHotels.sort(function (a, b) {
+                    return a.rating - b.rating;
+                })
+            }
+            else if (sortingBtn.value == "P-HTL") {
+                sorted = allHotels.sort(function (a, b) {
+                    return b.price - a.price;
+                })
+            }
+            else if (sortingBtn.value == "P-LTH") {
+                sorted = allHotels.sort(function (a, b) {
+                    return a.price - b.price;
+                })
+            }
+            DisplayHotels(sorted);
+        })
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-------FILTER------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    let categoryFilter  = document.querySelector("#categoryFilter");
+    let ratingFilter    = document.querySelector("#ratingFilter");
+
+    function filterdata(){
+        let filtered = [];
+        //When both are set to default
+        if(categoryFilter.value=="x" && ratingFilter.value=="x"){
+            filtered = allHotels;
+        }
+        //When Using only Category Filter
+        else if(categoryFilter.value!="x" && ratingFilter.value=="x"){
+            filtered = allHotels.filter(function(el){
+                return (categoryFilter.value == el.category)?true:false;
+                cosole.log("test")
+            })
+        }
+        //When Using only Rating Filter
+        else if (categoryFilter == "x" && ratingFilter.value != "x") {
+
+            if(ratingFilter.value == "lessThanTwo"){
+            filtered = allHotels.filter(function (el) {
+                if (el.rating < 2) { return true } else { return false }
+            })
+            }
+            else if (ratingFilter.value == "twoToFour") {
+                filtered = allHotels.filter(function (el) {
+                    if (el.rating >= 2 && el.rating <= 4) { return true } else { return false }
+                })
+            }
+            else if (ratingFilter.value == "moreThanFour") {
+                filtered = allHotels.filter(function (el) {
+                    if (el.rating > 4) { return true } else { return false }
+                })
+            }
+
+        }
+        else if(categoryFilter != "x" && ratingFilter.value != "x"){
+            if (ratingFilter.value == "lessThanTwo") {
+                filtered = allHotels.filter(function (el) {
+                    if (el.rating < 2 && el.category==categoryFilter.value) { return true } else { return false }
+                })
+            }
+            else if (ratingFilter.value == "twoToFour") {
+                filtered = allHotels.filter(function (el) {
+                    if ((el.rating >= 2 && el.rating <= 4) && el.category == categoryFilter.value) { return true } else { return false }
+                })
+            }
+            else if (ratingFilter.value == "moreThanFour") {
+                filtered = allHotels.filter(function (el) {
+                    if ((el.rating > 4) && el.category == categoryFilter.value) { return true } else { return false }
+                })
+            }
+        }
+        console.log(filtered);
+        if(filtered.length>0){DisplayHotels(filtered)}else{ noResults()}
+    }
+
+    categoryFilter.addEventListener("change", ()=>{
+        filterdata();
+    });
+
+    ratingFilter.addEventListener("change", () => {
+            filterdata();
+        });
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<No Results Found>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        function noResults(){
+            mainSection.innerHTML = null;
+            let noresults = document.createElement("div");
+            noresults.className = "noResults";
+                let noResImg = document.createElement("img");
+                noResImg.src = "./noResults.png"
+            noresults.append(noResImg);
+            mainSection.append(noresults);
+        }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Show all hotels>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                let showAllHotels = document.querySelector("#showAllHotels");
+
+                showAllHotels.addEventListener("click", function () {
+                    FetchHotels();
+                    searchBar.value=null;
+                    sortingBtn.value = "";
+                    ratingFilter.value="x";
+                    categoryFilter.value="x";
+                })
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Search>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        let adminLogOut = document.querySelector("#adminLogOut");
+
+        adminLogOut.addEventListener("click",function(){
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            window.location.href = "login-signup.html"
+        })
+
+</script>
