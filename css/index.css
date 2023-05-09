@@ -10,6 +10,9 @@ body { font-family:'Poppins', sans-serif;
     margin-top: -3%;
     padding-top:10% ;
 }
+.hero_title h1{
+  margin-bottom: 50px;
+}
 .hero_title> button{
     background-color:rgb(246,152,103);
 padding: 1%;
@@ -249,68 +252,52 @@ color: aliceblue;
   }
 /* !part5 */
 /* CSS code for second carousel */
-
 .container {
-  margin-top: 50px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 50px auto;
-  position: relative;
+  display: flex;
+}
+
+.left-column {
+  width: 30%;
+}
+
+.right-column {
+  width: 70%;
 }
 
 .carousel2 {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.carousel2 .tex {
-  padding: 10px;
-  text-align: center;
+.tex {
+  margin-right: 20px;
 }
 
-.carousel2 .tex img {
+.tex:last-child {
+  margin-right: 0;
+}
+
+.slick-slide img {
   width: 100%;
 }
 
-.container1 {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  transform: translateY(-50%);
-}
-
-.container1 .prev,
-.container1 .next {
-  background-color: #333;
-  border: none;
-  color: #fff;
-  padding: 10px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.container1 .prev:hover,
-.container1 .next:hover {
-  background-color: #555;
-}
-
-/* Media query for smaller screens */
-@media only screen and (max-width: 600px) {
-  .container1 {
-    flex-direction: column;
+/* Media queries */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
   }
-  .container1 .prev,
-  .container1 .next {
-    margin: 5px 0;
+  
+  .left-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .right-column {
+    width: 100%;
   }
 }
 
 /* !part6 */
-.input-icons i {
+/* .input-icons i {
     position: absolute;
 }
   
@@ -320,9 +307,9 @@ color: aliceblue;
     margin-bottom: 10px;
     height: 50px;
     background-color: aliceblue;
-}
+} */
   
-.icon {
+/* .icon {
     padding: 10px;
     min-width: 40px;
 }
@@ -333,7 +320,7 @@ color: aliceblue;
     height: 50px;
     text-align: center;
     
-}
+} */
 .part6{
     padding: 20px;
     text-align: center;
@@ -353,14 +340,46 @@ color: aliceblue;
    
     color: rgb(101,114,172)
 }
-.part6 button{
-    width: 15%;
-    height: 50px;
+.input-icons {
+    width: 70%;
+    display: flex;
+    margin: auto;
+    height: 40px;
+    
+    border-radius: 10px;
+    border: 1px solid rgb(101,114,172);
+    
+}
+.input-icons i {
+    margin-top: auto;
+    margin-bottom:auto ;
+    font-size: 30px;
+    color: rgb(101,114,172);
+}
+.input-icons input {
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    margin-left: 0px;
+    font-size: 20px;
+    color: rgb(101,114,172);
+}
+.input-icons input:focus{
+    outline: none;
+}
+.input-icons button{
+  border-radius: 10px;
+  background-color: rgb(246,152,103);
+  width: 20%;
 }
 .part6 input{
     background-color: rgba(0, 0, 0,0.1) ;
     padding: 0%;
-    border: 1px solid white;
+  border: none;
+}
+.part6 input:hover{
+  
+  border: 1px solid white;
 }
 .othercompanylogos a{
     width: 25%;
@@ -372,12 +391,15 @@ color: aliceblue;
 }
 .othercompanylogos{
     display: flex;
-    
     justify-content: space-evenly;
-    width: 80%;
+    width: 90%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.othercompanylogos a{
+  margin: auto;
+  padding: 10px;
 }
 @media only screen and (max-width: 600px) {
     .othercompanylogos{

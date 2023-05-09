@@ -80,10 +80,11 @@ nav .mainMenu.active {
   flex-direction: column;
   position: absolute;
   top: 70%;
-  left: 70%;
+  left: 75%;
   width: 100%;
+  right: 20%;
   padding: 0;
-  background-color: rgb(125,141,212, 0.4);
+  background-color: rgba(59, 89, 220, 0.7);
   border-radius: 10px;
   z-index: 999;
 }

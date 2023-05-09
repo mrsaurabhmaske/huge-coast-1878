@@ -9,8 +9,7 @@ function scrollToRecommend() {
   function scrollTopart5() {
     document.querySelector('#part5').scrollIntoView({ behavior: 'smooth' });
   }
-
-
+  
     
 
 // !trail code!this works
