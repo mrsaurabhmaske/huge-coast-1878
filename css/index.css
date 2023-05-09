@@ -11,7 +11,7 @@ body { font-family:'Poppins', sans-serif;
     padding-top:10% ;
 }
 .hero_title h1{
-  margin-bottom: 50px;
+  margin-bottom: -15px;
 }
 .hero_title> button{
     background-color:rgb(246,152,103);
@@ -252,6 +252,7 @@ color: aliceblue;
   }
 /* !part5 */
 /* CSS code for second carousel */
+
 .container {
   display: flex;
 }
@@ -297,30 +298,7 @@ color: aliceblue;
 }
 
 /* !part6 */
-/* .input-icons i {
-    position: absolute;
-}
-  
-.input-icons {
-    width: 70%;
-    margin: auto;
-    margin-bottom: 10px;
-    height: 50px;
-    background-color: aliceblue;
-} */
-  
-/* .icon {
-    padding: 10px;
-    min-width: 40px;
-}
-  
-.input-field {
-    width: 80%;
-    padding: 10px;
-    height: 50px;
-    text-align: center;
-    
-} */
+
 .part6{
     padding: 20px;
     text-align: center;
@@ -344,43 +322,46 @@ color: aliceblue;
     width: 70%;
     display: flex;
     margin: auto;
-    height: 40px;
-    
-    border-radius: 10px;
-    border: 1px solid rgb(101,114,172);
+    height: 50px;
+    padding: 10px 10px;
+    padding-left: 20px;
+    border-radius: 50px;
+    justify-content: space-between;
+    background-color: rgb(49,52,66);
     
 }
 .input-icons i {
     margin-top: auto;
     margin-bottom:auto ;
     font-size: 30px;
-    color: rgb(101,114,172);
+    color: rgb(184, 189, 209);
+    margin-right: 20px;
 }
 .input-icons input {
-    background-color: transparent;
+    
     border: none;
     width: 90%;
     margin-left: 0px;
     font-size: 20px;
-    color: rgb(101,114,172);
+    padding-left: 0px;
+  
 }
-.input-icons input:focus{
-    outline: none;
-}
+
 .input-icons button{
-  border-radius: 10px;
+  border-radius: 50px;
   background-color: rgb(246,152,103);
   width: 20%;
+  margin-left: -20px;
+}
+.input-icons > button a{
+  color: aliceblue;
 }
 .part6 input{
-    background-color: rgba(0, 0, 0,0.1) ;
+    background-color:rgb(49,52,66) ;
     padding: 0%;
   border: none;
 }
-.part6 input:hover{
-  
-  border: 1px solid white;
-}
+
 .othercompanylogos a{
     width: 25%;
 }
