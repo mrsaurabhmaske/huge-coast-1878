@@ -1,8 +1,6 @@
 # huge-coast-1878
 
-
 Travellish - Your Ultimate Travel Companion
-
 
 Welcome to Travellish, your ultimate travel companion for exploring the world. Travellish is an online travel website that offers a wide range of travel-related services to make your travel experience hassle-free, fun and memorable.
 
@@ -19,19 +17,21 @@ How to Use Travellish
 To use Travellish, follow these simple steps:
 
 Visit the Travellish website at www.travellish.com
-Select the service you require - flight booking, hotel booking, car rental, travel insurance, tour packages or visa assistance
-Fill in the required details such as your travel dates, destination, preferred airline, hotel or car model
+
+Select the service you require - flight booking or hotel booking.
+Fill in the required details such as your travel dates, destination, preferred airline, hotel.
+
 Make payment through our secure payment gateway
 Receive confirmation of your booking via email or SMS
+
 Contact Us
 If you have any queries or require assistance, you can contact us through the following channels:
 
 Email: support@travellish.com
-Phone: +1 (888) 123-4567
-Live chat: available on the website
+Phone: +91 0000000000
 We are available 24/7 to assist you with your travel needs.
 
-Conclusion
+Conclusion:
 Travellish is your ultimate travel companion for exploring the world. With our range of travel-related services, you can plan your travel easily and efficiently. We look forward to helping you plan your next adventure!
 
 B25 Construc Week Project (Collaborative)
