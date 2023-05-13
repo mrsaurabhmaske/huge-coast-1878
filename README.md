@@ -2,6 +2,8 @@
 
 Travellish - Your Ultimate Travel Companion
 
+Deployed URL: https://lively-marigold-c98b3e.netlify.app/
+
 Welcome to Travellish, your ultimate travel companion for exploring the world. Travellish is an online travel website that offers a wide range of travel-related services to make your travel experience hassle-free, fun and memorable.
 
 Features
@@ -16,7 +18,7 @@ Travellish makes it easy to find and book hotels at your travel destination. Our
 How to Use Travellish
 To use Travellish, follow these simple steps:
 
-Visit the Travellish website at www.travellish.com
+Visit the Travellish website at (https://lively-marigold-c98b3e.netlify.app/)
 
 Select the service you require - flight booking or hotel booking.
 Fill in the required details such as your travel dates, destination, preferred airline, hotel.
