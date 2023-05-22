@@ -1,6 +1,7 @@
 # huge-coast-1878
 
-Travellish - Your Ultimate Travel Companion
+#Travellish -
+Your Ultimate Travel Companion
 
 Deployed URL: https://lively-marigold-c98b3e.netlify.app/
 
